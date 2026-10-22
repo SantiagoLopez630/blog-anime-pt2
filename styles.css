@@ -362,17 +362,6 @@ h1 em {
 /* ==========================================================================
    6. SECCIÓN DE HISTORIA
    ========================================================================== */
-.historia,
-.seccion-autora,
-.seccion-manga,
-.seccion-nosotros,
-.seccion-contacto {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 8vw, 110px);
-  align-items: center;
-}
-
 .historia-imagen {
   position: relative;
   min-height: 540px;
@@ -419,20 +408,12 @@ h1 em {
   z-index: 2;
 }
 
-.historia-copia h2,
-.manga-copia h2,
-.copia-autora h2,
-.copia-nosotros h2,
-.introduccion-contacto h2 {
+.historia-copia h2 {
   font-size: clamp(32px, 4vw, 52px);
   margin: 15px 0 25px;
 }
 
-.historia-copia h2 span,
-.manga-copia h2 span,
-.copia-autora h2 span,
-.copia-nosotros h2 span,
-.introduccion-contacto h2 span {
+.historia-copia h2 span {
   color: var(--red-bright);
 }
 
@@ -585,7 +566,6 @@ h1 em {
   border-color: var(--acento);
 }
 
-/* Contenedor e imagen de personaje limpios */
 .visual-personaje {
   height: 180px;
   position: relative;
@@ -657,9 +637,7 @@ h1 em {
   margin-bottom: 15px;
 }
 
-.info-personaje button,
-.pie-linea-tiempo button,
-.info-pelicula {
+.info-personaje button {
   border: 0;
   background: none;
   color: #f2eee8;
@@ -670,9 +648,7 @@ h1 em {
   letter-spacing: .5px;
 }
 
-.info-personaje button:hover,
-.pie-linea-tiempo button:hover,
-.info-pelicula:hover {
+.info-personaje button:hover {
   color: var(--red-bright);
 }
 
@@ -682,7 +658,7 @@ h1 em {
 }
 
 /* ==========================================================================
-   8. SECCIÓN DE DATOS Y LÍNEA DE TIEMPO
+   8. SECCIÓN DE DATOS
    ========================================================================== */
 .cuadricula-datos {
   display: grid;
@@ -736,472 +712,9 @@ h1 em {
   margin: 0 0 20px 42px;
 }
 
-.linea-tiempo {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.tarjeta-linea-tiempo {
-  position: relative;
-  background: #1c1f20;
-  border: 1px solid var(--line);
-  padding: 25px 25px 20px 65px;
-}
-
-.punto-linea-tiempo {
-  position: absolute;
-  top: 24px;
-  left: 20px;
-  width: 29px;
-  height: 29px;
-  border: 1px solid var(--red);
-  display: grid;
-  place-items: center;
-  color: var(--red-bright);
-  font-family: var(--fuente-titulos);
-  font-size: 12px;
-}
-
-.meta-linea-tiempo {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: .7px;
-  color: #c0bbb3;
-}
-
-.meta-linea-tiempo b {
-  color: var(--red-bright);
-}
-
-.tarjeta-linea-tiempo h3 {
-  font-size: 19px;
-  margin: 15px 0 8px;
-}
-
-.tarjeta-linea-tiempo > p {
-  font-size: 11px;
-  min-height: 40px;
-}
-
-.pie-linea-tiempo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  margin-top: 17px;
-}
-
-.pie-linea-tiempo small {
-  color: var(--muted);
-  font-size: 10px;
-}
-
 /* ==========================================================================
-   9. SECCIÓN MANGA
+   9. PIE DE PÁGINA (FOOTER) Y BOTÓN FLOTANTE
    ========================================================================== */
-.seccion-manga {
-  background: #111314;
-}
-
-.manga-copia > p:not(.subtitulo) {
-  font-size: 13px;
-}
-
-.manga-copia ul {
-  list-style: none;
-  padding: 0;
-  margin: 25px 0;
-}
-
-.manga-copia li {
-  border-top: 1px solid var(--line);
-  padding: 13px 0;
-  font-size: 11px;
-  color: #c5c0b8;
-}
-
-.manga-copia li b {
-  color: var(--red-bright);
-  margin-right: 13px;
-}
-
-.portadas-manga {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px;
-  transform: rotate(1deg);
-}
-
-/* ==========================================================================
-   10. SECCIÓN PELÍCULAS
-   ========================================================================== */
-.seccion-peliculas {
-  background: #17191a;
-}
-
-.peliculas-rejilla {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.tarjeta-pelicula {
-  height: 460px;
-  position: relative;
-  overflow: hidden;
-  background: #242424;
-}
-
-.tarjeta-pelicula > img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  filter: brightness(.65) saturate(.7);
-  transition: transform .6s;
-  max-width: none !important;
-}
-
-.tarjeta-pelicula:hover > img {
-  transform: scale(1.04);
-}
-
-.capa-pelicula {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(7, 8, 9, .95), transparent 80%),              
-              linear-gradient(90deg, rgba(7, 8, 9, .3), transparent);
-}
-
-.anio-pelicula {
-  position: absolute;
-  top: 22px;
-  left: 22px;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-}
-
-.contenido-pelicula {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  right: 25px;
-}
-
-.contenido-pelicula p {
-  font-size: 9px;
-  letter-spacing: .7px;
-}
-
-.contenido-pelicula h3 {
-  font-size: clamp(32px, 3.8vw, 48px);
-  margin: 12px 0;
-}
-
-.contenido-pelicula small {
-  display: block;
-  max-width: 350px;
-  color: #d0cbc4;
-  font-size: 11px;
-}
-
-.info-pelicula {
-  margin-top: 20px;
-}
-
-.nota-pelicula,
-.nota-fuente {
-  font-size: 10px;
-  color: #8e8b86;
-  margin-top: 22px;
-}
-
-/* ==========================================================================
-   11. SECCIÓN AUTORA
-   ========================================================================== */
-.arte-autora {
-  min-height: 400px;
-  display: grid;
-  place-items: center;
-  position: relative;
-  background: radial-gradient(circle, #34302c, #191a1b 65%);
-  border: 1px solid var(--line);
-}
-
-.pie-autora {
-  position: absolute;
-  bottom: 22px;
-  left: 25px;
-  right: 25px;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  align-items: end;
-}
-
-.pie-autora b {
-  font-family: var(--fuente-titulos);
-  font-size: 16px;
-}
-
-.pie-autora small {
-  font-size: 9px;
-  color: var(--muted);
-  max-width: 160px;
-  text-align: right;
-}
-
-.copia-autora > p:not(.subtitulo) {
-  font-size: 12px;
-}
-
-.cronologia-autora {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.cronologia-autora > div {
-  border-top: 1px solid var(--red);
-  padding-top: 12px;
-}
-
-.cronologia-autora b {
-  color: var(--red-bright);
-  font-family: var(--fuente-titulos);
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.cronologia-autora p {
-  font-size: 10px;
-}
-
-/* ==========================================================================
-   12. SECCIÓN QUIÉNES SOMOS
-   ========================================================================== */
-.seccion-nosotros {
-  background: #141617;
-  max-width: none;
-  padding-left: max(calc((100% - var(--max)) / 2 + 35px), 35px);
-  padding-right: max(calc((100% - var(--max)) / 2 + 35px), 35px);
-}
-
-.simbolo-nosotros {
-  height: 370px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  background: radial-gradient(circle, #45231f, #1a1c1d 70%);
-}
-
-.copia-nosotros > p:not(.subtitulo) {
-  font-size: 12px;
-}
-
-.valores-nosotros {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.valores-nosotros > div {
-  border-top: 1px solid var(--red);
-  padding-top: 13px;
-}
-
-.valores-nosotros b {
-  font-family: var(--fuente-titulos);
-  font-size: 17px;
-  color: var(--red-bright);
-  font-weight: 400;
-}
-
-.valores-nosotros h3 {
-  font-size: 14px;
-  margin: 8px 0;
-}
-
-.valores-nosotros p {
-  font-size: 10px;
-  margin: 0;
-}
-
-/* ==========================================================================
-   13. SECCIÓN DE CONTACTO
-   ========================================================================== */
-.seccion-contacto {
-  align-items: start;
-}
-
-.introduccion-contacto h2 {
-  font-size: clamp(32px, 4vw, 52px);
-}
-
-.nota-contacto {
-  display: flex;
-  gap: 15px;
-  align-items: start;
-  margin-top: 30px;
-  padding: 20px;
-  background: #1c1e20;
-  border: 1px solid var(--line);
-}
-
-.nota-contacto > span {
-  font-size: 25px;
-  color: var(--red-bright);
-}
-
-.nota-contacto b {
-  font-size: 12px;
-}
-
-.nota-contacto p {
-  font-size: 11px;
-  margin: 5px 0 0;
-}
-
-.formulario-contacto {
-  background: #191b1d;
-  border: 1px solid var(--line);
-  padding: 28px;
-}
-
-.fila-formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-bottom: 18px;
-}
-
-.fila-formulario label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #d6d0c8;
-}
-
-.fila-formulario input,
-.fila-formulario textarea,
-.fila-formulario select {
-  width: 100%;
-  border: 1px solid #393b3d;
-  background: #111314;
-  color: var(--text);
-  padding: 12px 13px;
-  font-size: 12px;
-  border-radius: 0;
-}
-
-.fila-formulario textarea {
-  resize: vertical;
-}
-
-.fila-formulario input::placeholder,
-.fila-formulario textarea::placeholder {
-  color: #777;
-}
-
-.fila-formulario select option {
-  background: #111314;
-}
-
-.formulario-contacto .btn {
-  width: 100%;
-}
-
-.retroalimentacion-formulario {
-  font-size: 11px;
-  margin: 12px 0 0;
-}
-
-.retroalimentacion-formulario.exito {
-  color: #9bd0a2;
-}
-
-.retroalimentacion-formulario.error {
-  color: #ff9c8c;
-}
-
-/* ==========================================================================
-   14. PIE DE PÁGINA (FOOTER) Y BOTÓN FLOTANTE
-   ========================================================================== */
-.pie-pagina {
-  border-top: 1px solid var(--line);
-  padding: 48px max(5vw, 28px) 25px;
-  background: #0c0d0e;
-}
-
-.superior-pie {
-  max-width: var(--max);
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-}
-
-.marca-pie {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
-
-.marca-pie h2 {
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.enlaces-pie {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px;
-}
-
-.social-pie > span {
-  font-size: 10px;
-  color: var(--muted);
-}
-
-.social-pie > div {
-  display: flex;
-  gap: 9px;
-  margin-top: 8px;
-}
-
-.social-pie a {
-  display: grid;
-  place-items: center;
-  width: 29px;
-  height: 29px;
-  border: 1px solid var(--line);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 11px;
-}
-
-.descargo-responsabilidad,
-.pie-pagina > small {
-  display: block;
-  max-width: var(--max);
-  margin: 30px auto 0;
-  color: #777;
-  font-size: 9px;
-}
-
-.pie-pagina > small {
-  margin-top: 12px;
-  letter-spacing: 1px;
-}
-
 .boton-arriba {
   position: fixed;
   right: 22px;
@@ -1216,7 +729,7 @@ h1 em {
 }
 
 /* ==========================================================================
-   15. VENTANAS MODALES
+   10. VENTANAS MODALES
    ========================================================================== */
 .fondo-modal {
   position: fixed;
@@ -1287,7 +800,7 @@ h1 em {
 }
 
 /* ==========================================================================
-   16. MEDIA QUERIES (RESPONSIVE DESIGN)
+   11. MEDIA QUERIES (RESPONSIVE DESIGN)
    ========================================================================== */
 @media (max-width: 1100px) {
   .barra-superior {
@@ -1344,11 +857,7 @@ h1 em {
     top: 22%;
     width: 70vw;
   }
-  .historia,
-  .seccion-autora,
-  .seccion-manga,
-  .seccion-nosotros,
-  .seccion-contacto {
+  .historia {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -1371,24 +880,8 @@ h1 em {
   .buscador {
     max-width: none;
   }
-  .linea-tiempo {
+  .cuadricula-datos {
     grid-template-columns: 1fr;
-  }
-  .portadas-manga {
-    max-width: 520px;
-    width: 100%;
-    margin: auto;
-  }
-  .simbolo-nosotros {
-    height: 280px;
-  }
-  .superior-pie {
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  .enlaces-pie {
-    order: 3;
-    width: 100%;
   }
 }
 
@@ -1438,8 +931,7 @@ h1 em {
   .seccion-personajes,
   .seccion-datos,
   .seccion-cronologia,
-  .seccion-peliculas,
-  .seccion-nosotros {
+  .seccion-peliculas {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -1450,16 +942,10 @@ h1 em {
   .historia-estadisticas {
     gap: 24px;
   }
-  .historia-copia h2,
-  .manga-copia h2,
-  .copia-autora h2,
-  .copia-nosotros h2,
-  .introduccion-contacto h2 {
+  .historia-copia h2 {
     font-size: 32px;
   }
-  .cuadricula-personajes,
-  .cuadricula-datos,
-  .peliculas-rejilla {
+  .cuadricula-personajes {
     grid-template-columns: 1fr;
   }
   .visual-personaje {
@@ -1470,58 +956,6 @@ h1 em {
   }
   .tarjeta-dato {
     padding: 0 14px;
-  }
-  .tarjeta-linea-tiempo {
-    padding: 22px 16px 18px 55px;
-  }
-  .punto-linea-tiempo {
-    left: 14px;
-  }
-  .meta-linea-tiempo {
-    font-size: 8px;
-  }
-  .tarjeta-pelicula {
-    height: 410px;
-  }
-  .arte-autora {
-    min-height: 320px;
-  }
-  .pie-autora {
-    left: 15px;
-    right: 15px;
-  }
-  .pie-autora b {
-    font-size: 12px;
-  }
-  .pie-autora small {
-    font-size: 8px;
-  }
-  .cronologia-autora {
-    gap: 8px;
-  }
-  .valores-nosotros {
-    gap: 8px;
-  }
-  .valores-nosotros h3 {
-    font-size: 12px;
-  }
-  .valores-nosotros p {
-    font-size: 9px;
-  }
-  .formulario-contacto {
-    padding: 19px;
-  }
-  .pie-pagina {
-    padding: 35px 20px 22px;
-  }
-  .superior-pie {
-    gap: 22px;
-  }
-  .enlaces-pie {
-    gap: 12px 17px;
-  }
-  .social-pie {
-    width: 100%;
   }
   .ventana-modal {
     padding: 30px 23px;
