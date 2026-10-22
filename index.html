@@ -5,26 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Archivo de cazadores: historia, personajes y curiosidades de Demon Slayer. Blog creado por fans para fans.">
   <title>Demon Slayer Blog | Archivo de cazadores</title>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  
   <link rel="stylesheet" href="styles.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+
+ 
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="topbar">
-    <button class="brand" data-go="inicio" aria-label="Ir al inicio"><span class="brand-seal">滅</span><span>DEMON SLAYER <b>BLOG</b></span></button>
-    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
-    <nav class="nav-links" aria-label="Navegación principal">
-      <button data-go="inicio" class="active">Inicio</button>
-      <button data-go="historia">Historia</button>
-      <button data-go="personajes">Personajes</button>
-      <button data-go="temporadas">Temporadas</button>
-      <button data-go="curiosidades">Curiosidades</button>
-      <button data-go="manga">Manga</button>
-      <button data-go="peliculas">Películas</button>
-      <button data-go="creadora">Creadora</button>
-      <button data-go="quienes-somos">Quiénes somos</button>
-      <button data-go="contacto">Contacto</button>
+
+
+<header class="topbar navbar navbar-expand-xl" data-bs-theme="dark">
+  <div class="container-fluid">
+
+    <button
+      type="button"
+      class="brand navbar-brand"
+      data-go="inicio"
+      aria-label="Ir al inicio"
+    >
+      <span class="brand-seal">滅</span>
+      <span>DEMON SLAYER <b>BLOG</b></span>
+    </button>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarDemon"
+      aria-controls="navbarDemon"
+      aria-expanded="false"
+      aria-label="Mostrar u ocultar navegación"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <nav
+      class="collapse navbar-collapse"
+      id="navbarDemon"
+      aria-label="Navegación principal"
+    >
+      <div class="navbar-nav ms-auto gap-xl-2">
+
+        <button type="button" data-go="inicio" class="nav-link active">Inicio</button>
+        <button type="button" data-go="historia" class="nav-link">Historia</button>
+        <button type="button" data-go="personajes" class="nav-link">Personajes</button>
+        <button type="button" data-go="temporadas" class="nav-link">Temporadas</button>
+        <button type="button" data-go="curiosidades" class="nav-link">Curiosidades</button>
+        <button type="button" data-go="manga" class="nav-link">Manga</button>
+        <button type="button" data-go="peliculas" class="nav-link">Películas</button>
+        <button type="button" data-go="creadora" class="nav-link">Creadora</button>
+        <button type="button" data-go="quienes-somos" class="nav-link">Quiénes somos</button>
+        <button type="button" data-go="contacto" class="nav-link">Contacto</button>
+
+      </div>
     </nav>
-  </header>
+
+  </div>
+</header>
+
+
 
   <main>
     <section id="inicio" class="hero" style="--hero-image:url('https://logos-world.net/wp-content/uploads/2021/12/Demon-Slayer-Emblem.png')">
@@ -39,7 +85,57 @@
       <div class="scroll-cue"><i></i> DESLIZA PARA EXPLORAR</div>
     </section>
 
-    <section id="historia" class="section story">
+    <div class="container-fluid">
+    <div class="row g-4 g-lg-5 align-items-center">
+
+      <!-- Imagen -->
+      <div class="col-12 col-lg-6">
+        <div class="story-image reveal-frame">
+          <img
+            class="img-fluid"
+            src="https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_.jpg"
+            alt="Santuario japonés entre un bosque cubierto de niebla"
+          >
+
+          <div class="image-stamp">
+            家族
+            <small>FAMILIA</small>
+          </div>
+
+          <p>«No importa cuántas personas pierdas, no tienes más remedio que seguir viviendo.»</p>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="col-12 col-lg-6">
+        <div class="story-copy">
+          <p class="eyebrow">La historia comienza</p>
+
+          <h2>UN VIAJE NACIDO<br>DE LA <span>TRAGEDIA</span></h2>
+
+          <p class="lead">
+            En las montañas del Japón de la era Taishō, un joven bondadoso ve su vida transformada en una noche.
+          </p>
+
+          <p>
+            Después de que un demonio ataca a su familia y su hermana Nezuko se convierte en uno, Tanjiro Kamado emprende un viaje para devolverle su humanidad. Para lograrlo deberá dominar la espada, unirse al Cuerpo de Exterminio y mirar a los demonios sin perder su propia compasión.
+          </p>
+
+          <div class="genre-tag">
+            Acción <i></i> Aventura <i></i> Fantasía oscura <i></i> Drama
+          </div>
+
+          <div class="story-stats">
+            <div><strong>23</strong><span>Volúmenes</span></div>
+            <div><strong>205</strong><span>Capítulos</span></div>
+            <div><strong>9</strong><span>Hashira</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
       <div class="story-image reveal-frame"><img src="https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_.jpg" alt="Santuario japonés entre un bosque cubierto de niebla"><div class="image-stamp">家族<small>FAMILIA</small></div><p>«No importa cuántas personas pierdas, no tienes más remedio que seguir viviendo.»</p></div>
       <div class="story-copy"><p class="eyebrow">La historia comienza</p><h2>UN VIAJE NACIDO<br>DE LA <span>TRAGEDIA</span></h2><p class="lead">En las montañas del Japón de la era Taishō, un joven bondadoso ve su vida transformada en una noche.</p><p>Después de que un demonio ataca a su familia y su hermana Nezuko se convierte en uno, Tanjiro Kamado emprende un viaje para devolverle su humanidad. Para lograrlo deberá dominar la espada, unirse al Cuerpo de Exterminio y mirar a los demonios sin perder su propia compasión.</p><div class="genre-tag">Acción <i></i> Aventura <i></i> Fantasía oscura <i></i> Drama</div><div class="story-stats"><div><strong>23</strong><span>Volúmenes</span></div><div><strong>205</strong><span>Capítulos</span></div><div><strong>9</strong><span>Hashira</span></div></div></div>
     </section>

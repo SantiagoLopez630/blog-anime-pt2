@@ -151,7 +151,7 @@ h1 em {
    4. NAVEGACIÓN Y CABECERA (Topbar)
    ========================================================================== */
 .topbar {
-  height: 78px;
+  min-height: 78px;
   padding: 0 max(5vw, 24px);
   display: flex;
   align-items: center;
@@ -199,7 +199,7 @@ h1 em {
   gap: clamp(8px, 1.15vw, 19px);
 }
 
-.nav-links button,
+#navbarDemon .nav-link,
 .footer-links button {
   border: 0;
   background: none;
@@ -210,8 +210,8 @@ h1 em {
   transition: color .2s;
 }
 
-.nav-links button:hover,
-.nav-links button.active,
+#navbarDemon .nav-link:hover,
+#navbarDemon .nav-link.active,
 .footer-links button:hover {
   color: var(--red-bright);
 }
@@ -346,7 +346,8 @@ h1 em {
 /* ==========================================================================
    6. SECCIÓN DE HISTORIA (Story)
    ========================================================================== */
-.story,
+.author-section,
+.author-section,
 .author-section,
 .manga-section,
 .about-section,
@@ -1424,7 +1425,7 @@ h1 em {
 
 @media (max-width: 560px) {
   .topbar {
-    height: 68px;
+    min-height: 68px;
     padding: 0 17px;
   }
   .nav-links {

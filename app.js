@@ -60,11 +60,15 @@ function goTo(id) {
 }
 
 function closeMenu() {
-  const nav = document.querySelector('.nav-links');
-  const toggle = document.querySelector('.menu-toggle');
-  nav.classList.remove('open');
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', 'Abrir menú');
+  const nav = document.querySelector('#navbarDemon');
+
+  if (!nav || !window.bootstrap) return;
+
+  const collapse = bootstrap.Collapse.getOrCreateInstance(nav, {
+    toggle: false
+  });
+
+  collapse.hide();
 }
 
 function openModal(modal) {
@@ -124,13 +128,6 @@ document.addEventListener('click', event => {
   if (filmButton) showFilmInfo(filmButton.dataset.film);
 });
 
-document.querySelector('.menu-toggle').addEventListener('click', event => {
-  const toggle = event.currentTarget;
-  const nav = document.querySelector('.nav-links');
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(isOpen));
-  toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-});
 
 [characterModal, infoModal].forEach(modal => {
   modal.addEventListener('click', event => {
@@ -155,7 +152,7 @@ window.addEventListener('scroll', () => {
     const section = document.getElementById(id);
     if (section && section.offsetTop <= marker) current = id;
   });
-  document.querySelectorAll('.nav-links [data-go]').forEach(button => {
+  ddocument.querySelectorAll('#navbarDemon [data-go]').forEach(button => {
     button.classList.toggle('active', button.dataset.go === current);
   });
 }, {passive:true});
