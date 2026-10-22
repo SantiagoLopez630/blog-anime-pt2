@@ -1,6 +1,6 @@
 'use strict';
 
-const characters = [
+const personajes = [
   {name:'Tanjiro Kamado',mark:'水',color:'#3a8f88',role:'Cazador compasivo',skill:'Respiración del Agua · Hinokami Kagura',text:'Su inquebrantable empatía es tan poderosa como su espada.',image:'https://coanime.s3.us-east-2.amazonaws.com/posts/2023/01/2922/82c5485965c0211efd536f9c1e5e59dde01760e60c79d1e75952a95bcda84efd.webp'},
   {name:'Nezuko Kamado',mark:'血',color:'#b73b56',role:'Demonio protectora',skill:'Arte Demoníaco de Sangre',text:'Conserva su humanidad y lucha por proteger a quienes ama.',image:'https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2023/04/25/6900dcae4b415.jpeg'},
   {name:'Zenitsu Agatsuma',mark:'雷',color:'#d99435',role:'Espadachín del trueno',skill:'Respiración del Rayo',text:'El miedo desaparece cuando su instinto toma el control.',image:'https://m.media-amazon.com/images/M/MV5BZjVjMjQ2NDYtOGJkNy00OWJjLWE4ZTAtNzJlZjQ2ODk3YWQwXkEyXkFqcGc@._V1_.jpg'},
@@ -15,169 +15,193 @@ const characters = [
   {name:'Gyomei Himejima',mark:'岩',color:'#6f6255',role:'Pilar de la Roca',skill:'Respiración de la Roca',text:'El más fuerte de los Pilares; fe, disciplina y poder absoluto.',image:'https://images3.alphacoders.com/136/thumb-1920-1366567.png'}
 ];
 
-const navItems = [
-  ['inicio','Inicio'],['historia','Historia'],['personajes','Personajes'],['temporadas','Temporadas'],
-  ['curiosidades','Curiosidades'],['manga','Manga'],['peliculas','Películas'],['creadora','Creadora'],
-  ['quienes-somos','Quiénes somos'],['contacto','Contacto']
-];
+const informacionPeliculas = {
+  mugen: {
+    titulo: 'Mugen Train (El Tren Infinito)',
+    texto: 'Tras el éxito de la primera temporada, esta película adapta el arco del Tren Infinito. Tanjiro, Zenitsu e Inosuke acompañan al Pilar de la Llama, Kyojuro Rengoku, a investigar la misteriosa desaparición de pasajeros, enfrentándose a la Luna Superior Enmu y a la trágica intervención de Akaza.'
+  },
+  infinity: {
+    titulo: 'Castillo Infinito (Infinity Castle)',
+    texto: 'La saga final de Demon Slayer se adapta en una ambiciosa trilogía cinematográfica producida por ufotable. Todo el Cuerpo de Exterminio y los Hashira restantes son arrastrados al cuartel general de Muzan Kibutsuji, marcando el inicio de la confrontación definitiva.'
+  }
+};
 
-const grid = document.querySelector('#character-grid');
-const searchInput = document.querySelector('#character-search');
-const filterButtons = [...document.querySelectorAll('[data-filter]')];
-const characterModal = document.querySelector('#character-modal');
-const infoModal = document.querySelector('#info-modal');
-let activeFilter = 'Todos';
-let lastFocusedElement = null;
-
-function renderCharacters() {
-  const term = searchInput.value.trim().toLocaleLowerCase('es');
-  const filtered = characters.filter(character => {
-    const isHashira = character.role.includes('Pilar');
-    const typeMatches = activeFilter === 'Todos' || (activeFilter === 'Hashira' ? isHashira : !isHashira);
-    const textMatches = `${character.name} ${character.skill} ${character.role}`.toLocaleLowerCase('es').includes(term);
-    return typeMatches && textMatches;
-  });
-
-  grid.innerHTML = filtered.map((character, index) => `
-    <article class="character-card" style="--accent:${character.color}">
-      <div class="character-visual">
-        <img src="${character.image}" alt="${character.name}" class="character-img" loading="lazy">
-        <span class="character-number">${String(index + 1).padStart(2, '0')}</span>
-        <span class="character-mark" aria-hidden="true">${character.mark}</span><div class="blade"></div>
-        <span class="character-role">${character.role}</span>
-      </div>
-      <div class="character-info"><h3>${character.name}</h3><p>${character.text}</p><strong>${character.skill}</strong>
-        <button type="button" data-character="${character.name}">Ver personaje <span class="arrow">↗</span></button>
-      </div>
-    </article>`).join('');
-  document.querySelector('#character-empty').hidden = filtered.length !== 0;
-}
-
-function goTo(id) {
-  const target = document.getElementById(id);
-  if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
-  closeMenu();
-}
-
-function closeMenu() {
-  const nav = document.querySelector('.nav-links');
-  const toggle = document.querySelector('.menu-toggle');
-  nav.classList.remove('open');
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', 'Abrir menú');
-}
-
-function openModal(modal) {
-  lastFocusedElement = document.activeElement;
-  modal.hidden = false;
-  document.body.classList.add('modal-open');
-  modal.querySelector('.modal-close').focus();
-}
-
-function closeModal(modal) {
-  modal.hidden = true;
-  if (characterModal.hidden && infoModal.hidden) document.body.classList.remove('modal-open');
-  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
-}
-
-function showCharacter(name) {
-  const character = characters.find(item => item.name === name);
-  if (!character) return;
-  const dialog = characterModal.querySelector('.character-modal');
-  dialog.style.setProperty('--accent', character.color);
+document.addEventListener('DOMContentLoaded', () => {
+  // Referencias a elementos del DOM actualizados en español
+  const cuadriculaPersonajes = document.querySelector('#cuadricula-personajes');
+  const entradaBusqueda = document.querySelector('#entrada-busqueda-personaje');
+  const botonesFiltro = [...document.querySelectorAll('[data-filter]')];
+  const mensajeVacio = document.querySelector('#personajes-vacio');
   
-  const modalImg = document.querySelector('#modal-img');
-  if (modalImg) modalImg.src = character.image;
+  const modalPersonaje = document.querySelector('#modal-personaje');
+  const imagenModal = document.querySelector('#imagen-modal');
+  const marcaModal = document.querySelector('#marca-modal');
+  const rolModal = document.querySelector('#rol-modal');
+  const nombreModal = document.querySelector('#nombre-modal');
+  const textoModal = document.querySelector('#texto-modal');
+  const habilidadModal = document.querySelector('#habilidad-modal');
 
-  document.querySelector('#modal-mark').textContent = character.mark;
-  document.querySelector('#modal-role').textContent = character.role;
-  document.querySelector('#modal-name').textContent = character.name;
-  document.querySelector('#modal-text').textContent = character.text;
-  document.querySelector('#modal-skill').textContent = character.skill;
-  openModal(characterModal);
-}
+  const modalInformacion = document.querySelector('#modal-informacion');
+  const tituloInfoModal = document.querySelector('#titulo-info-modal');
+  const textoInfoModal = document.querySelector('#texto-info-modal');
 
-function showFilmInfo(type) {
-  const details = type === 'mugen'
-    ? {title:'Mugen Train', text:'Tanjiro y sus compañeros se unen a Kyojuro Rengoku para investigar desapariciones a bordo de un tren. La misión pone a prueba su voluntad, sus vínculos y su capacidad para proteger a los pasajeros.'}
-    : {title:'Infinity Castle', text:'La historia entra en su etapa final dentro del Castillo Infinito, una fortaleza cambiante donde los cazadores se enfrentan a enemigos de enorme poder. Consulta los canales oficiales para información actualizada sobre estrenos y distribución.'};
-  document.querySelector('#info-title').textContent = details.title;
-  document.querySelector('#info-text').textContent = details.text;
-  openModal(infoModal);
-}
+  const botonMenu = document.querySelector('.alternar-menu');
+  const enlacesNavegacion = document.querySelector('.enlaces-navegacion');
+  const botonArriba = document.querySelector('#boton-arriba');
+  const anioActual = document.querySelector('#anio-actual');
 
-searchInput.addEventListener('input', renderCharacters);
-filterButtons.forEach(button => button.addEventListener('click', () => {
-  activeFilter = button.dataset.filter;
-  filterButtons.forEach(item => item.classList.toggle('selected', item === button));
-  renderCharacters();
-}));
+  if (anioActual) {
+    anioActual.textContent = new Date().getFullYear();
+  }
 
-document.addEventListener('click', event => {
-  const goButton = event.target.closest('[data-go]');
-  if (goButton) goTo(goButton.dataset.go);
+  // Renderizar personajes
+  function renderizarPersonajes(lista) {
+    if (!cuadriculaPersonajes) return;
+    
+    if (lista.length === 0) {
+      cuadriculaPersonajes.innerHTML = '';
+      if (mensajeVacio) mensajeVacio.hidden = false;
+      return;
+    }
 
-  const characterButton = event.target.closest('[data-character]');
-  if (characterButton) showCharacter(characterButton.dataset.character);
+    if (mensajeVacio) mensajeVacio.hidden = true;
 
-  const filmButton = event.target.closest('[data-film]');
-  if (filmButton) showFilmInfo(filmButton.dataset.film);
-});
+    cuadriculaPersonajes.innerHTML = lista.map((p, index) => `
+      <article class="tarjeta-personaje" style="--acento: ${p.color};" data-index="${personajes.indexOf(p)}">
+        <div class="visual-personaje">
+          <span class="numero-personaje">#${String(index + 1).padStart(2, '0')}</span>
+          <div class="marca-personaje">${p.mark}</div>
+          <div class="espada"></div>
+          <span class="rol-personaje">${p.role}</span>
+        </div>
+        <div class="info-personaje">
+          <h3>${p.name}</h3>
+          <p>${p.text}</p>
+          <strong>${p.skill}</strong>
+          <button class="btn-ver-mas">Ver detalles <span class="flecha">↗</span></button>
+        </div>
+      </article>
+    `).join('');
+  }
 
-document.querySelector('.menu-toggle').addEventListener('click', event => {
-  const toggle = event.currentTarget;
-  const nav = document.querySelector('.nav-links');
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(isOpen));
-  toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-});
+  renderizarPersonajes(personajes);
 
-[characterModal, infoModal].forEach(modal => {
-  modal.addEventListener('click', event => {
-    if (event.target === modal || event.target.closest('.modal-close')) closeModal(modal);
+  // Filtrado y búsqueda
+  let filtroActual = 'Todos';
+
+  function filtrarDatos() {
+    const consulta = entradaBusqueda ? entradaBusqueda.value.toLowerCase().trim() : '';
+    const filtrados = personajes.filter(p => {
+      const coincideTexto = p.name.toLowerCase().includes(consulta) || p.skill.toLowerCase().includes(consulta) || p.role.toLowerCase().includes(consulta);
+      const coincideFiltro = filtroActual === 'Todos' || 
+        (filtroActual === 'Cazadores' && !p.role.includes('Pilar')) || 
+        (filtroActual === 'Hashira' && p.role.includes('Pilar'));
+      return coincideTexto && coincideFiltro;
+    });
+    renderizarPersonajes(filtrados);
+  }
+
+  if (entradaBusqueda) {
+    entradaBusqueda.addEventListener('input', filtrarDatos);
+  }
+
+  botonesFiltro.forEach(boton => {
+    boton.addEventListener('click', (e) => {
+      botonesFiltro.forEach(b => b.classList.remove('seleccionado'));
+      e.currentTarget.classList.add('seleccionado');
+      filtroActual = e.currentTarget.getAttribute('data-filter');
+      filtrarDatos();
+    });
   });
-});
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    if (!characterModal.hidden) closeModal(characterModal);
-    if (!infoModal.hidden) closeModal(infoModal);
-    closeMenu();
+  // Evento de clic en tarjetas de personajes (Abrir Modal)
+  if (cuadriculaPersonajes) {
+    cuadriculaPersonajes.addEventListener('click', (e) => {
+      const tarjeta = e.target.closest('.tarjeta-personaje');
+      if (!tarjeta) return;
+      const index = tarjeta.getAttribute('data-index');
+      const p = personajes[index];
+
+      if (modalPersonaje) {
+        modalPersonaje.style.setProperty('--acento', p.color);
+        if (imagenModal) {
+          imagenModal.src = p.image;
+          imagenModal.alt = p.name;
+        }
+        if (marcaModal) marcaModal.textContent = p.mark;
+        if (rolModal) rolModal.textContent = p.role;
+        if (nombreModal) nombreModal.textContent = p.name;
+        if (textoModal) textoModal.textContent = p.text;
+        if (habilidadModal) habilidadModal.textContent = p.skill;
+        modalPersonaje.hidden = false;
+        document.body.classList.add('modal-abierto');
+      }
+    });
+  }
+
+  // Modales de información cinematográfica
+  document.querySelectorAll('[data-film]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const tipo = e.currentTarget.getAttribute('data-film');
+      const info = informacionPeliculas[tipo];
+      if (info && modalInformacion) {
+        if (tituloInfoModal) tituloInfoModal.textContent = info.titulo;
+        if (textoInfoModal) textoInfoModal.textContent = info.texto;
+        modalInformacion.hidden = false;
+        document.body.classList.add('modal-abierto');
+      }
+    });
+  });
+
+  // Cerrar modales
+  document.querySelectorAll('.cerrar-modal, .fondo-modal').forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (e.target === el || e.target.classList.contains('cerrar-modal')) {
+        if (modalPersonaje) modalPersonaje.hidden = true;
+        if (modalInformacion) modalInformacion.hidden = true;
+        document.body.classList.remove('modal-abierto');
+      }
+    });
+  });
+
+  // Menú desplegable para móviles
+  if (botonMenu && enlacesNavegacion) {
+    botonMenu.addEventListener('click', () => {
+      const abierto = enlacesNavegacion.classList.toggle('abierto');
+      botonMenu.setAttribute('aria-expanded', abierto);
+    });
+
+    enlacesNavegacion.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        enlacesNavegacion.classList.remove('abierto');
+        botonMenu.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Navegación fluida por botones [data-go]
+  document.querySelectorAll('[data-go]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const objetivo = e.currentTarget.getAttribute('data-go');
+      const elemento = document.querySelector(`#${objetivo}`);
+      if (elemento) {
+        elemento.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Botón Volver Arriba y barra de navegación activa
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      if (botonArriba) botonArriba.hidden = false;
+    } else {
+      if (botonArriba) botonArriba.hidden = true;
+    }
+  });
+
+  if (botonArriba) {
+    botonArriba.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 });
-
-const backTop = document.querySelector('#back-top');
-window.addEventListener('scroll', () => {
-  backTop.hidden = window.scrollY < 700;
-  const marker = window.scrollY + window.innerHeight * 0.35;
-  let current = 'inicio';
-  navItems.forEach(([id]) => {
-    const section = document.getElementById(id);
-    if (section && section.offsetTop <= marker) current = id;
-  });
-  document.querySelectorAll('.nav-links [data-go]').forEach(button => {
-    button.classList.toggle('active', button.dataset.go === current);
-  });
-}, {passive:true});
-backTop.addEventListener('click', () => goTo('inicio'));
-
-document.querySelector('#contact-form').addEventListener('submit', event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const feedback = document.querySelector('#form-feedback');
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    feedback.textContent = 'Revisa los campos antes de continuar.';
-    feedback.className = 'form-feedback error';
-    return;
-  }
-  const data = new FormData(form);
-  const subject = `[Demon Slayer Blog] ${data.get('subject')}`;
-  const body = `Nombre: ${data.get('name')}\nCorreo: ${data.get('email')}\n\n${data.get('message')}`;
-  feedback.textContent = 'Formulario validado. Se abrirá tu aplicación de correo para que puedas enviar el mensaje.';
-  feedback.className = 'form-feedback success';
-  window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
-
-document.querySelector('#current-year').textContent = new Date().getFullYear();
-renderCharacters();
