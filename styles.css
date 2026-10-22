@@ -9,8 +9,8 @@
   --panel-2: #1d2022;
   --text: #f2eee8;
   --muted: #aaa8a3;
-  --red: #b74335;
-  --red-bright: #e05a43;
+  --red: #f5240c;
+  --red-bright: #fa2702;
   --line: rgba(255, 255, 255, .12);
   --serif: 'Cinzel', Georgia, serif;
   --sans: 'Manrope', Arial, sans-serif;
@@ -69,9 +69,10 @@ p {
 }
 
 h1, h2, h3 {
-  font-family: var(--serif);
-  font-weight: 600;
-  line-height: 1.15;
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  
 }
 
 h1 {
