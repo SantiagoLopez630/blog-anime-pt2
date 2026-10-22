@@ -1,4 +1,4 @@
-------------Actividad Blog Grupo 10 -------------------
+------------Actividad Blog Grupo 08 -------------------
 
 * Mateo Valencia
 * Luisa Sanchez
