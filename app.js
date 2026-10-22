@@ -21,37 +21,9 @@ const navItems = [
   ['quienes-somos','Quiénes somos'],['contacto','Contacto']
 ];
 
-const grid = document.querySelector('#character-grid');
-const searchInput = document.querySelector('#character-search');
-const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const characterModal = document.querySelector('#character-modal');
 const infoModal = document.querySelector('#info-modal');
-let activeFilter = 'Todos';
 let lastFocusedElement = null;
-
-function renderCharacters() {
-  const term = searchInput.value.trim().toLocaleLowerCase('es');
-  const filtered = characters.filter(character => {
-    const isHashira = character.role.includes('Pilar');
-    const typeMatches = activeFilter === 'Todos' || (activeFilter === 'Hashira' ? isHashira : !isHashira);
-    const textMatches = `${character.name} ${character.skill} ${character.role}`.toLocaleLowerCase('es').includes(term);
-    return typeMatches && textMatches;
-  });
-
-  grid.innerHTML = filtered.map((character, index) => `
-    <article class="character-card" style="--accent:${character.color}">
-      <div class="character-visual">
-        <img src="${character.image}" alt="${character.name}" class="character-img" loading="lazy">
-        <span class="character-number">${String(index + 1).padStart(2, '0')}</span>
-        <span class="character-mark" aria-hidden="true">${character.mark}</span><div class="blade"></div>
-        <span class="character-role">${character.role}</span>
-      </div>
-      <div class="character-info"><h3>${character.name}</h3><p>${character.text}</p><strong>${character.skill}</strong>
-        <button type="button" data-character="${character.name}">Ver personaje <span class="arrow">↗</span></button>
-      </div>
-    </article>`).join('');
-  document.querySelector('#character-empty').hidden = filtered.length !== 0;
-}
 
 function goTo(id) {
   const target = document.getElementById(id);
@@ -105,13 +77,6 @@ function showFilmInfo(type) {
   document.querySelector('#info-text').textContent = details.text;
   openModal(infoModal);
 }
-
-searchInput.addEventListener('input', renderCharacters);
-filterButtons.forEach(button => button.addEventListener('click', () => {
-  activeFilter = button.dataset.filter;
-  filterButtons.forEach(item => item.classList.toggle('selected', item === button));
-  renderCharacters();
-}));
 
 document.addEventListener('click', event => {
   const goButton = event.target.closest('[data-go]');
@@ -180,4 +145,3 @@ document.querySelector('#contact-form').addEventListener('submit', event => {
 });
 
 document.querySelector('#current-year').textContent = new Date().getFullYear();
-renderCharacters();
