@@ -1,26 +1,30 @@
 /* ==========================================================================
-   1. IMPORTS & CONFIGURACIÓN BASE (:root)
+   1. CONFIGURACIÓN BASE (:root)
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
-
 :root {
   --bg: #101112;
   --panel: #17191b;
   --panel-2: #1d2022;
   --text: #f2eee8;
   --muted: #aaa8a3;
-  --red: #b74335;
-  --red-bright: #e05a43;
+  --red: #f5240c;
+  --red-bright: #fa2702;
   --line: rgba(255, 255, 255, .12);
-  --serif: 'Cinzel', Georgia, serif;
-  --sans: 'Manrope', Arial, sans-serif;
+
+  /* Variables de tipografía configuradas con tus nuevas fuentes */
+  --fuente-titulos: 'Uncial Antiqua', cursive, serif;
+  --fuente-cuerpo: 'Varela Round', sans-serif;
+  --fuente-manuscrita: 'Gwendolyn', cursive;
+
   --max: 1220px;
 }
 
 /* ==========================================================================
    2. ESTILOS GLOBALES Y RESET
    ========================================================================== */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -33,16 +37,16 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--sans);
+  font-family: var(--fuente-cuerpo);
   line-height: 1.7;
 }
 
-body.modal-open {
+body.modal-abierto {
   overflow: hidden;
 }
 
 button, input, textarea, select {
-  font: inherit;
+  font-family: var(--fuente-cuerpo);
 }
 
 button {
@@ -64,19 +68,27 @@ img {
   max-width: 100%;
 }
 
-p {
-  color: #c2bfba;
+.imagen-responsiva {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
+p {
+  color: #c2bfba;
+  font-family: var(--fuente-cuerpo);
+}
+
+/* Aplicación de Uncial Antiqua a todos los títulos */
 h1, h2, h3 {
-  font-family: var(--serif);
-  font-weight: 600;
-  line-height: 1.15;
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 h1 {
-  font-size: clamp(44px, 7.5vw, 96px);
-  letter-spacing: -2px;
+  font-size: clamp(40px, 7vw, 88px);
+  letter-spacing: 1px;
   margin: 0;
   max-width: 850px;
 }
@@ -86,24 +98,25 @@ h1 em {
   color: var(--red-bright);
   font-size: .47em;
   font-style: normal;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   margin-top: 15px;
+  font-family: var(--fuente-cuerpo);
 }
 
-.section {
+.seccion {
   max-width: var(--max);
   margin: auto;
   padding: 115px 35px;
 }
 
 /* ==========================================================================
-   3. COMPONENTES REUTILIZABLES (Botones, Eyebrows, etc.)
+   3. COMPONENTES REUTILIZABLES (Botones, Subtítulos, etc.)
    ========================================================================== */
-.eyebrow,
-.hero-kicker {
+.subtitulo,
+.portada-etiqueta {
   color: var(--red-bright);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
 }
@@ -111,8 +124,8 @@ h1 em {
 .btn {
   padding: 14px 19px;
   border: 1px solid transparent;
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: .7px;
   text-transform: uppercase;
   transition: transform .2s, background .2s;
@@ -122,35 +135,35 @@ h1 em {
   transform: translateY(-2px);
 }
 
-.btn.primary {
+.btn.primario {
   background: var(--red);
   color: white;
 }
 
-.btn.primary:hover {
+.btn.primario:hover {
   background: var(--red-bright);
 }
 
-.btn.ghost {
+.btn.fantasma {
   background: rgba(10, 10, 10, .2);
   border-color: rgba(255, 255, 255, .35);
   color: white;
 }
 
-.arrow {
+.flecha {
   font-size: 16px;
   margin-left: 10px;
 }
 
-.lead {
+.parrafo-destacado {
   font-size: 17px;
   color: #e4dfd8;
 }
 
 /* ==========================================================================
-   4. NAVEGACIÓN Y CABECERA (Topbar)
+   4. NAVEGACIÓN Y CABECERA (Barra Superior)
    ========================================================================== */
-.topbar {
+.barra-superior {
   height: 78px;
   padding: 0 max(5vw, 24px);
   display: flex;
@@ -165,24 +178,25 @@ h1 em {
   backdrop-filter: blur(14px);
 }
 
-.brand {
+.marca {
   display: flex;
   align-items: center;
   gap: 12px;
   background: none;
   border: 0;
   color: var(--text);
-  font: 700 12px var(--serif);
+  font-family: var(--fuente-titulos);
+  font-size: 14px;
   letter-spacing: 1.4px;
   white-space: nowrap;
 }
 
-.brand b,
-.footer-brand b {
+.marca b,
+.marca-pie b {
   color: var(--red-bright);
 }
 
-.brand-seal {
+.sello-marca {
   width: 39px;
   height: 39px;
   border: 1px solid var(--red);
@@ -190,40 +204,41 @@ h1 em {
   place-items: center;
   color: var(--red-bright);
   font-size: 22px;
+  font-family: serif;
 }
 
-.nav-links {
+.enlaces-navegacion {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: clamp(8px, 1.15vw, 19px);
 }
 
-.nav-links button,
-.footer-links button {
+.enlaces-navegacion button,
+.enlaces-pie button {
   border: 0;
   background: none;
   color: #c3c0bb;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .5px;
   padding: 8px 0;
   transition: color .2s;
 }
 
-.nav-links button:hover,
-.nav-links button.active,
-.footer-links button:hover {
+.enlaces-navegacion button:hover,
+.enlaces-navegacion button.activo,
+.enlaces-pie button:hover {
   color: var(--red-bright);
 }
 
-.menu-toggle {
+.alternar-menu {
   display: none;
   background: none;
   border: 0;
   padding: 8px;
 }
 
-.menu-toggle span {
+.alternar-menu span {
   display: block;
   width: 25px;
   height: 2px;
@@ -232,28 +247,28 @@ h1 em {
 }
 
 /* ==========================================================================
-   5. SECCIÓN HERO
+   5. SECCIÓN PORTADA
    ========================================================================== */
-.hero {
+.portada {
   min-height: calc(100vh - 78px);
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-image: var(--hero-image);
+  background-image: var(--imagen-portada);
   background-position: center;
   background-size: cover;
   padding: 90px max(9vw, 28px);
 }
 
-.hero-shade {
+.portada-sombra {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10, 11, 12, .96) 0%, rgba(10, 11, 12, .78) 43%, rgba(10, 11, 12, .2) 100%), 
+  background: linear-gradient(90deg, rgba(10, 11, 12, .96) 0%, rgba(10, 11, 12, .78) 43%, rgba(10, 11, 12, .2) 100%),              
               linear-gradient(0deg, rgba(10, 11, 12, .72), transparent 50%);
 }
 
-.hero-orb {
+.portada-brillo {
   position: absolute;
   width: min(43vw, 570px);
   aspect-ratio: 1;
@@ -264,43 +279,43 @@ h1 em {
   box-shadow: 0 0 0 45px rgba(255, 255, 255, .018), 0 0 0 90px rgba(255, 255, 255, .012);
 }
 
-.hero-content {
+.portada-contenido {
   position: relative;
   max-width: 760px;
   z-index: 1;
 }
 
-.hero-kicker {
+.portada-etiqueta {
   display: flex;
   align-items: center;
   gap: 13px;
   margin-bottom: 22px;
 }
 
-.hero-kicker span {
+.portada-etiqueta span {
   font-size: 19px;
 }
 
-.hero-kicker i,
-.genre-tag i {
+.portada-etiqueta i,
+.etiqueta-genero i {
   height: 1px;
   width: 25px;
   background: var(--red-bright);
 }
 
-.hero-content > p {
+.portada-contenido > p {
   max-width: 520px;
   font-size: 15px;
   margin: 28px 0 30px;
 }
 
-.hero-actions {
+.portada-acciones {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.hero-index {
+.portada-indice {
   position: absolute;
   right: 6%;
   bottom: 15%;
@@ -310,22 +325,23 @@ h1 em {
   color: #fff;
 }
 
-.hero-index span {
-  font: 30px var(--serif);
+.portada-indice span {
+  font-family: var(--fuente-titulos);
+  font-size: 28px;
 }
 
-.hero-index i {
+.portada-indice i {
   width: 50px;
   height: 1px;
   background: var(--red-bright);
 }
 
-.hero-index small {
+.portada-indice small {
   color: #c9c4bd;
   font-size: 10px;
 }
 
-.scroll-cue {
+.indicador-desplazamiento {
   position: absolute;
   left: max(9vw, 28px);
   bottom: 28px;
@@ -337,41 +353,42 @@ h1 em {
   gap: 12px;
 }
 
-.scroll-cue i {
+.indicador-desplazamiento i {
   height: 30px;
   width: 1px;
   background: var(--red-bright);
 }
 
 /* ==========================================================================
-   6. SECCIÓN DE HISTORIA (Story)
+   6. SECCIÓN DE HISTORIA
    ========================================================================== */
-.story,
-.author-section,
-.manga-section,
-.about-section,
-.contact-section {
+.historia,
+.seccion-autora,
+.seccion-manga,
+.seccion-nosotros,
+.seccion-contacto {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(40px, 8vw, 110px);
   align-items: center;
 }
 
-.story-image {
+.historia-imagen {
   position: relative;
   min-height: 540px;
   overflow: hidden;
   background: #26282a;
 }
 
-.story-image img {
-  width: 100%;
-  height: 540px;
-  object-fit: cover;
+.historia-imagen img {
+  width: 100% !important;
+  height: 540px !important;
+  object-fit: cover !important;
   filter: brightness(.72) saturate(.7);
+  max-width: none !important;
 }
 
-.image-stamp {
+.sello-imagen {
   position: absolute;
   top: 25px;
   left: 25px;
@@ -382,41 +399,44 @@ h1 em {
   place-content: center;
   text-align: center;
   font-size: 25px;
+  z-index: 2;
 }
 
-.image-stamp small {
+.sello-imagen small {
   font-size: 8px;
   letter-spacing: 2px;
+  font-family: var(--fuente-cuerpo);
 }
 
-.story-image > p {
+.historia-imagen > p {
   position: absolute;
   bottom: 20px;
   left: 25px;
   right: 25px;
-  font-family: var(--serif);
+  font-family: var(--fuente-titulos);
   font-size: 18px;
   color: white;
+  z-index: 2;
 }
 
-.story-copy h2,
-.manga-copy h2,
-.author-copy h2,
-.about-copy h2,
-.contact-intro h2 {
-  font-size: clamp(34px, 4.2vw, 57px);
+.historia-copia h2,
+.manga-copia h2,
+.copia-autora h2,
+.copia-nosotros h2,
+.introduccion-contacto h2 {
+  font-size: clamp(32px, 4vw, 52px);
   margin: 15px 0 25px;
 }
 
-.story-copy h2 span,
-.manga-copy h2 span,
-.author-copy h2 span,
-.about-copy h2 span,
-.contact-intro h2 span {
+.historia-copia h2 span,
+.manga-copia h2 span,
+.copia-autora h2 span,
+.copia-nosotros h2 span,
+.introduccion-contacto h2 span {
   color: var(--red-bright);
 }
 
-.genre-tag {
+.etiqueta-genero {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -428,11 +448,11 @@ h1 em {
   margin-top: 28px;
 }
 
-.genre-tag i {
+.etiqueta-genero i {
   width: 4px;
 }
 
-.story-stats {
+.historia-estadisticas {
   display: flex;
   gap: 42px;
   border-top: 1px solid var(--line);
@@ -440,17 +460,19 @@ h1 em {
   padding-top: 24px;
 }
 
-.story-stats div {
+.historia-estadisticas div {
   display: flex;
   flex-direction: column;
 }
 
-.story-stats strong {
-  font: 32px var(--serif);
+.historia-estadisticas strong {
+  font-family: var(--fuente-titulos);
+  font-size: 32px;
   color: var(--red-bright);
+  font-weight: 400;
 }
 
-.story-stats span {
+.historia-estadisticas span {
   font-size: 10px;
   color: var(--muted);
   text-transform: uppercase;
@@ -458,19 +480,19 @@ h1 em {
 }
 
 /* ==========================================================================
-   7. SECCIÓN DE PERSONAJES (Characters)
+   7. SECCIÓN DE PERSONAJES
    ========================================================================== */
-.character-section,
-.facts-section,
-.timeline-section,
-.film-section {
+.seccion-personajes,
+.seccion-datos,
+.seccion-cronologia,
+.seccion-peliculas {
   max-width: none;
   padding-left: max(calc((100% - var(--max)) / 2 + 35px), 35px);
   padding-right: max(calc((100% - var(--max)) / 2 + 35px), 35px);
   background: #141617;
 }
 
-.section-heading {
+.encabezado-seccion {
   display: flex;
   justify-content: space-between;
   align-items: end;
@@ -478,18 +500,18 @@ h1 em {
   margin-bottom: 35px;
 }
 
-.section-heading h2 {
-  font-size: clamp(29px, 3.7vw, 45px);
+.encabezado-seccion h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
   margin: 10px 0 0;
 }
 
-.heading-note {
+.nota-encabezado {
   max-width: 360px;
   font-size: 12px;
   margin: 0;
 }
 
-.character-tools {
+.herramientas-personajes {
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -497,7 +519,7 @@ h1 em {
   margin-bottom: 25px;
 }
 
-.search {
+.buscador {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -509,11 +531,11 @@ h1 em {
   color: var(--red-bright);
 }
 
-.search span {
+.buscador span {
   font-size: 25px;
 }
 
-.search input {
+.buscador input {
   width: 100%;
   background: transparent;
   border: 0;
@@ -523,13 +545,13 @@ h1 em {
   font-size: 12px;
 }
 
-.filters {
+.filtros {
   display: flex;
   gap: 7px;
   flex-wrap: wrap;
 }
 
-.filters button {
+.filtros button {
   border: 1px solid var(--line);
   background: transparent;
   color: #bbb;
@@ -537,145 +559,144 @@ h1 em {
   font-size: 10px;
 }
 
-.filters button.selected,
-.filters button:hover {
+.filtros button.seleccionado,
+.filtros button:hover {
   background: var(--red);
   border-color: var(--red);
   color: #fff;
 }
 
-.character-grid {
+.cuadricula-personajes {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 17px;
 }
 
-.character-card {
-  --accent: #b74335;
+.tarjeta-personaje {
+  --acento: var(--red);
   background: #1c1e20;
   border: 1px solid var(--line);
   transition: transform .25s, border-color .25s;
   min-width: 0;
 }
 
-.character-card:hover {
+.tarjeta-personaje:hover {
   transform: translateY(-5px);
-  border-color: var(--accent);
+  border-color: var(--acento);
 }
 
-.character-visual {
+/* Contenedor e imagen de personaje limpios */
+.visual-personaje {
   height: 180px;
   position: relative;
   overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 34%, #1b1d1e), #1a1c1e 70%);
+  background: #1a1c1e;
 }
 
-.character-visual:after {
-  content: "";
+.imagen-tarjeta-personaje {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  max-width: none !important;
+}
+
+.capa-imagen-tarjeta {
   position: absolute;
-  inset: 15px;
-  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
-  transform: rotate(8deg);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%);
+  z-index: 1;
 }
 
-.character-number {
+.visual-personaje > *:not(.capa-imagen-tarjeta) {
+  position: relative;
+  z-index: 2;
+}
+
+.numero-personaje {
   position: absolute;
   top: 14px;
   left: 15px;
-  color: #b5b0a8;
+  color: #fff;
   font-size: 10px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
-.character-mark {
-  font-size: 76px;
-  font-family: serif;
-  color: var(--accent);
-  text-shadow: 0 0 35px color-mix(in srgb, var(--accent) 45%, transparent);
-}
-
-.blade {
-  position: absolute;
-  width: 160px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), white, var(--accent), transparent);
-  transform: rotate(-42deg);
-  opacity: .75;
-}
-
-.character-role {
+.rol-personaje {
   position: absolute;
   bottom: 12px;
   right: 14px;
-  color: #e3ded6;
+  color: #fff;
   font-size: 9px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
-.character-info {
+.info-personaje {
   padding: 20px;
 }
 
-.character-info h3 {
-  font-size: 17px;
+.info-personaje h3 {
+  font-size: 18px;
   margin: 0 0 9px;
 }
 
-.character-info p {
+.info-personaje p {
   font-size: 11px;
   min-height: 52px;
   margin: 0 0 14px;
 }
 
-.character-info strong {
+.info-personaje strong {
   display: block;
   font-size: 10px;
-  color: var(--accent);
+  color: var(--acento);
   margin-bottom: 15px;
 }
 
-.character-info button,
-.timeline-footer button,
-.film-info {
+.info-personaje button,
+.pie-linea-tiempo button,
+.info-pelicula {
   border: 0;
   background: none;
   color: #f2eee8;
   padding: 0;
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .5px;
 }
 
-.character-info button:hover,
-.timeline-footer button:hover,
-.film-info:hover {
+.info-personaje button:hover,
+.pie-linea-tiempo button:hover,
+.info-pelicula:hover {
   color: var(--red-bright);
 }
 
-.empty {
+.vacio {
   padding: 25px;
   text-align: center;
 }
 
 /* ==========================================================================
-   8. SECCIÓN DE DATOS Y LÍNEA DE TIEMPO (Facts & Timeline)
+   8. SECCIÓN DE DATOS Y LÍNEA DE TIEMPO
    ========================================================================== */
-.facts-grid {
+.cuadricula-datos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
-.fact-card {
+.tarjeta-dato {
   background: #1d2022;
   border: 1px solid var(--line);
   padding: 0 20px;
 }
 
-.fact-card summary {
+.tarjeta-dato summary {
   list-style: none;
   display: flex;
   align-items: center;
@@ -684,50 +705,51 @@ h1 em {
   min-height: 75px;
 }
 
-.fact-card summary::-webkit-details-marker {
+.tarjeta-dato summary::-webkit-details-marker {
   display: none;
 }
 
-.fact-card summary > span {
-  font: 19px var(--serif);
+.tarjeta-dato summary > span {
+  font-family: var(--fuente-titulos);
+  font-size: 19px;
   color: var(--red-bright);
 }
 
-.fact-card h3 {
+.tarjeta-dato h3 {
   font-size: 15px;
   flex: 1;
 }
 
-.fact-card summary > b {
+.tarjeta-dato summary > b {
   font-size: 22px;
   font-weight: 400;
   color: var(--red-bright);
   transition: transform .2s;
 }
 
-.fact-card[open] summary > b {
+.tarjeta-dato[open] summary > b {
   transform: rotate(45deg);
 }
 
-.fact-card > p {
+.tarjeta-dato > p {
   font-size: 12px;
   margin: 0 0 20px 42px;
 }
 
-.timeline {
+.linea-tiempo {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 15px;
 }
 
-.timeline-card {
+.tarjeta-linea-tiempo {
   position: relative;
   background: #1c1f20;
   border: 1px solid var(--line);
   padding: 25px 25px 20px 65px;
 }
 
-.timeline-dot {
+.punto-linea-tiempo {
   position: absolute;
   top: 24px;
   left: 20px;
@@ -737,10 +759,11 @@ h1 em {
   display: grid;
   place-items: center;
   color: var(--red-bright);
-  font: 12px var(--serif);
+  font-family: var(--fuente-titulos);
+  font-size: 12px;
 }
 
-.timeline-meta {
+.meta-linea-tiempo {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -750,21 +773,21 @@ h1 em {
   color: #c0bbb3;
 }
 
-.timeline-meta b {
+.meta-linea-tiempo b {
   color: var(--red-bright);
 }
 
-.timeline-card h3 {
+.tarjeta-linea-tiempo h3 {
   font-size: 19px;
   margin: 15px 0 8px;
 }
 
-.timeline-card > p {
+.tarjeta-linea-tiempo > p {
   font-size: 11px;
   min-height: 40px;
 }
 
-.timeline-footer {
+.pie-linea-tiempo {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -774,7 +797,7 @@ h1 em {
   margin-top: 17px;
 }
 
-.timeline-footer small {
+.pie-linea-tiempo small {
   color: var(--muted);
   font-size: 10px;
 }
@@ -782,126 +805,80 @@ h1 em {
 /* ==========================================================================
    9. SECCIÓN MANGA
    ========================================================================== */
-.manga-section {
+.seccion-manga {
   background: #111314;
 }
 
-.manga-copy > p:not(.eyebrow) {
+.manga-copia > p:not(.subtitulo) {
   font-size: 13px;
 }
 
-.manga-copy ul {
+.manga-copia ul {
   list-style: none;
   padding: 0;
   margin: 25px 0;
 }
 
-.manga-copy li {
+.manga-copia li {
   border-top: 1px solid var(--line);
   padding: 13px 0;
   font-size: 11px;
   color: #c5c0b8;
 }
 
-.manga-copy li b {
+.manga-copia li b {
   color: var(--red-bright);
   margin-right: 13px;
 }
 
-.manga-covers {
+.portadas-manga {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px;
   transform: rotate(1deg);
 }
 
-.manga-cover {
-  min-height: 210px;
-  padding: 17px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, .24);
-  background: radial-gradient(circle at 50% 38%, #8b3028, #2a1716 72%);
-  box-shadow: 0 14px 30px #0004;
-}
-
-.manga-cover small,
-.manga-cover > b {
-  font-size: 8px;
-  letter-spacing: 1.5px;
-}
-
-.manga-cover span {
-  font-size: 54px;
-  color: #f1c8a0;
-}
-
-.manga-cover h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.cover-2 {
-  background: radial-gradient(circle at 50% 38%, #8a5c22, #211b17 72%);
-}
-
-.cover-3 {
-  background: radial-gradient(circle at 50% 38%, #67547e, #1b1721 72%);
-}
-
-.cover-4 {
-  background: radial-gradient(circle at 50% 38%, #8b6b35, #211c13 72%);
-}
-
-.rights-note {
-  grid-column: 1 / -1;
-  font-size: 9px;
-  color: #888;
-}
-
 /* ==========================================================================
-   10. SECCIÓN PELÍCULAS (Films)
+   10. SECCIÓN PELÍCULAS
    ========================================================================== */
-.film-section {
+.seccion-peliculas {
   background: #17191a;
 }
 
-.films {
+.peliculas-rejilla {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.film-card {
+.tarjeta-pelicula {
   height: 460px;
   position: relative;
   overflow: hidden;
   background: #242424;
 }
 
-.film-card > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.tarjeta-pelicula > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
   filter: brightness(.65) saturate(.7);
   transition: transform .6s;
+  max-width: none !important;
 }
 
-.film-card:hover > img {
+.tarjeta-pelicula:hover > img {
   transform: scale(1.04);
 }
 
-.film-overlay {
+.capa-pelicula {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(7, 8, 9, .95), transparent 80%), 
+  background: linear-gradient(0deg, rgba(7, 8, 9, .95), transparent 80%),              
               linear-gradient(90deg, rgba(7, 8, 9, .3), transparent);
 }
 
-.film-year {
+.anio-pelicula {
   position: absolute;
   top: 22px;
   left: 22px;
@@ -909,45 +886,45 @@ h1 em {
   letter-spacing: 1.5px;
 }
 
-.film-content {
+.contenido-pelicula {
   position: absolute;
   bottom: 25px;
   left: 25px;
   right: 25px;
 }
 
-.film-content p {
+.contenido-pelicula p {
   font-size: 9px;
   letter-spacing: .7px;
 }
 
-.film-content h3 {
-  font-size: clamp(36px, 4vw, 54px);
+.contenido-pelicula h3 {
+  font-size: clamp(32px, 3.8vw, 48px);
   margin: 12px 0;
 }
 
-.film-content small {
+.contenido-pelicula small {
   display: block;
   max-width: 350px;
   color: #d0cbc4;
   font-size: 11px;
 }
 
-.film-info {
+.info-pelicula {
   margin-top: 20px;
 }
 
-.film-note,
-.source-note {
+.nota-pelicula,
+.nota-fuente {
   font-size: 10px;
   color: #8e8b86;
   margin-top: 22px;
 }
 
 /* ==========================================================================
-   11. SECCIÓN AUTOR (Author)
+   11. SECCIÓN AUTORA
    ========================================================================== */
-.author-art {
+.arte-autora {
   min-height: 400px;
   display: grid;
   place-items: center;
@@ -956,23 +933,7 @@ h1 em {
   border: 1px solid var(--line);
 }
 
-.ink-circle {
-  width: 230px;
-  height: 230px;
-  border: 3px solid #b9b0a0;
-  border-radius: 48% 52% 42% 58%;
-  display: grid;
-  place-items: center;
-  transform: rotate(-12deg);
-  box-shadow: 0 0 0 13px #b9b0a00c, 0 0 0 28px #b9b0a008;
-}
-
-.ink-circle span {
-  font-size: 100px;
-  color: #d1c6b4;
-}
-
-.author-caption {
+.pie-autora {
   position: absolute;
   bottom: 22px;
   left: 25px;
@@ -983,106 +944,108 @@ h1 em {
   align-items: end;
 }
 
-.author-caption b {
-  font: 15px var(--serif);
+.pie-autora b {
+  font-family: var(--fuente-titulos);
+  font-size: 16px;
 }
 
-.author-caption small {
+.pie-autora small {
   font-size: 9px;
   color: var(--muted);
   max-width: 160px;
   text-align: right;
 }
 
-.author-copy > p:not(.eyebrow) {
+.copia-autora > p:not(.subtitulo) {
   font-size: 12px;
 }
 
-.author-timeline {
+.cronologia-autora {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 25px;
 }
 
-.author-timeline > div {
+.cronologia-autora > div {
   border-top: 1px solid var(--red);
   padding-top: 12px;
 }
 
-.author-timeline b {
+.cronologia-autora b {
   color: var(--red-bright);
-  font: 18px var(--serif);
+  font-family: var(--fuente-titulos);
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.author-timeline p {
+.cronologia-autora p {
   font-size: 10px;
 }
 
 /* ==========================================================================
-   12. SECCIÓN ACERCA DE (About)
+   12. SECCIÓN QUIÉNES SOMOS
    ========================================================================== */
-.about-section {
+.seccion-nosotros {
   background: #141617;
   max-width: none;
   padding-left: max(calc((100% - var(--max)) / 2 + 35px), 35px);
   padding-right: max(calc((100% - var(--max)) / 2 + 35px), 35px);
 }
 
-.about-symbol {
+.simbolo-nosotros {
   height: 370px;
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
   background: radial-gradient(circle, #45231f, #1a1c1d 70%);
-  font: clamp(110px, 18vw, 210px) var(--serif);
-  color: #d45a45;
-  text-shadow: 0 0 60px #a83b2d55;
 }
 
-.about-copy > p:not(.eyebrow) {
+.copia-nosotros > p:not(.subtitulo) {
   font-size: 12px;
 }
 
-.about-values {
+.valores-nosotros {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 28px;
 }
 
-.about-values > div {
+.valores-nosotros > div {
   border-top: 1px solid var(--red);
   padding-top: 13px;
 }
 
-.about-values b {
-  font: 17px var(--serif);
+.valores-nosotros b {
+  font-family: var(--fuente-titulos);
+  font-size: 17px;
   color: var(--red-bright);
+  font-weight: 400;
 }
 
-.about-values h3 {
+.valores-nosotros h3 {
   font-size: 14px;
   margin: 8px 0;
 }
 
-.about-values p {
+.valores-nosotros p {
   font-size: 10px;
   margin: 0;
 }
 
 /* ==========================================================================
-   13. SECCIÓN DE CONTACTO (Contact)
+   13. SECCIÓN DE CONTACTO
    ========================================================================== */
-.contact-section {
+.seccion-contacto {
   align-items: start;
 }
 
-.contact-intro h2 {
-  font-size: clamp(35px, 4.5vw, 58px);
+.introduccion-contacto h2 {
+  font-size: clamp(32px, 4vw, 52px);
 }
 
-.contact-note {
+.nota-contacto {
   display: flex;
   gap: 15px;
   align-items: start;
@@ -1092,43 +1055,43 @@ h1 em {
   border: 1px solid var(--line);
 }
 
-.contact-note > span {
+.nota-contacto > span {
   font-size: 25px;
   color: var(--red-bright);
 }
 
-.contact-note b {
+.nota-contacto b {
   font-size: 12px;
 }
 
-.contact-note p {
+.nota-contacto p {
   font-size: 11px;
   margin: 5px 0 0;
 }
 
-.contact-form {
+.formulario-contacto {
   background: #191b1d;
   border: 1px solid var(--line);
   padding: 28px;
 }
 
-.form-row {
+.fila-formulario {
   display: flex;
   flex-direction: column;
   gap: 7px;
   margin-bottom: 18px;
 }
 
-.form-row label {
+.fila-formulario label {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #d6d0c8;
 }
 
-.form-row input,
-.form-row textarea,
-.form-row select {
+.fila-formulario input,
+.fila-formulario textarea,
+.fila-formulario select {
   width: 100%;
   border: 1px solid #393b3d;
   background: #111314;
@@ -1138,46 +1101,46 @@ h1 em {
   border-radius: 0;
 }
 
-.form-row textarea {
+.fila-formulario textarea {
   resize: vertical;
 }
 
-.form-row input::placeholder,
-.form-row textarea::placeholder {
+.fila-formulario input::placeholder,
+.fila-formulario textarea::placeholder {
   color: #777;
 }
 
-.form-row select option {
+.fila-formulario select option {
   background: #111314;
 }
 
-.contact-form .btn {
+.formulario-contacto .btn {
   width: 100%;
 }
 
-.form-feedback {
+.retroalimentacion-formulario {
   font-size: 11px;
   margin: 12px 0 0;
 }
 
-.form-feedback.success {
+.retroalimentacion-formulario.exito {
   color: #9bd0a2;
 }
 
-.form-feedback.error {
+.retroalimentacion-formulario.error {
   color: #ff9c8c;
 }
 
 /* ==========================================================================
-   14. FOOTER Y ELEMENTOS FLOTANTES
+   14. PIE DE PÁGINA (FOOTER) Y BOTÓN FLOTANTE
    ========================================================================== */
-.footer {
+.pie-pagina {
   border-top: 1px solid var(--line);
   padding: 48px max(5vw, 28px) 25px;
   background: #0c0d0e;
 }
 
-.footer-top {
+.superior-pie {
   max-width: var(--max);
   margin: auto;
   display: flex;
@@ -1186,35 +1149,35 @@ h1 em {
   gap: 30px;
 }
 
-.footer-brand {
+.marca-pie {
   display: flex;
   align-items: center;
   gap: 13px;
 }
 
-.footer-brand h2 {
-  font-size: 13px;
+.marca-pie h2 {
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
-.footer-links {
+.enlaces-pie {
   display: flex;
   flex-wrap: wrap;
   gap: 17px;
 }
 
-.footer-social > span {
+.social-pie > span {
   font-size: 10px;
   color: var(--muted);
 }
 
-.footer-social > div {
+.social-pie > div {
   display: flex;
   gap: 9px;
   margin-top: 8px;
 }
 
-.footer-social a {
+.social-pie a {
   display: grid;
   place-items: center;
   width: 29px;
@@ -1225,8 +1188,8 @@ h1 em {
   font-size: 11px;
 }
 
-.disclaimer,
-.footer > small {
+.descargo-responsabilidad,
+.pie-pagina > small {
   display: block;
   max-width: var(--max);
   margin: 30px auto 0;
@@ -1234,12 +1197,12 @@ h1 em {
   font-size: 9px;
 }
 
-.footer > small {
+.pie-pagina > small {
   margin-top: 12px;
   letter-spacing: 1px;
 }
 
-.back-top {
+.boton-arriba {
   position: fixed;
   right: 22px;
   bottom: 22px;
@@ -1253,9 +1216,9 @@ h1 em {
 }
 
 /* ==========================================================================
-   15. MODALES
+   15. VENTANAS MODALES
    ========================================================================== */
-.modal-backdrop {
+.fondo-modal {
   position: fixed;
   inset: 0;
   z-index: 50;
@@ -1266,22 +1229,22 @@ h1 em {
   backdrop-filter: blur(6px);
 }
 
-.modal-backdrop[hidden],
-.back-top[hidden] {
+.fondo-modal[hidden],
+.boton-arriba[hidden] {
   display: none;
 }
 
-.character-modal {
-  --accent: var(--red);
+.ventana-modal {
+  --acento: var(--red);
   position: relative;
   width: min(100%, 520px);
   padding: 42px;
   background: #1b1d1f;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--acento);
   box-shadow: 0 20px 80px #0008;
 }
 
-.modal-close {
+.cerrar-modal {
   position: absolute;
   right: 15px;
   top: 10px;
@@ -1291,61 +1254,69 @@ h1 em {
   font-size: 29px;
 }
 
-.modal-mark {
+.imagen-personaje-modal {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.marca-modal {
   font-size: 72px;
-  color: var(--accent);
+  color: var(--acento);
   font-family: serif;
 }
 
-.character-modal h2 {
-  font-size: 30px;
+.ventana-modal h2 {
+  font-size: 28px;
   margin: 10px 0;
 }
 
-.character-modal > p:not(.eyebrow) {
+.ventana-modal > p:not(.subtitulo) {
   font-size: 13px;
 }
 
-.character-modal > strong {
-  color: var(--accent);
+.ventana-modal > strong {
+  color: var(--acento);
   font-size: 12px;
 }
 
-.info-modal {
-  --accent: var(--red-bright);
+.modal-info {
+  --acento: var(--red-bright);
 }
 
 /* ==========================================================================
    16. MEDIA QUERIES (RESPONSIVE DESIGN)
    ========================================================================== */
 @media (max-width: 1100px) {
-  .topbar {
+  .barra-superior {
     padding: 0 24px;
   }
-  .nav-links {
+  .enlaces-navegacion {
     gap: 10px;
   }
-  .nav-links button {
-    font-size: 9px;
-  }
-  .brand {
+  .enlaces-navegacion button {
     font-size: 10px;
   }
-  .character-grid {
+  .marca {
+    font-size: 12px;
+  }
+  .cuadricula-personajes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .section {
+  .seccion {
     padding-top: 85px;
     padding-bottom: 85px;
   }
 }
 
 @media (max-width: 850px) {
-  .menu-toggle {
+  .alternar-menu {
     display: block;
     margin-left: auto;
   }
-  .nav-links {
+  .enlaces-navegacion {
     display: none;
     position: absolute;
     top: 77px;
@@ -1357,224 +1328,205 @@ h1 em {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 5px 20px;
   }
-  .nav-links.open {
+  .enlaces-navegacion.abierto {
     display: grid;
   }
-  .nav-links button {
+  .enlaces-navegacion button {
     text-align: left;
     padding: 10px 0;
     font-size: 11px;
   }
-  .hero {
+  .portada {
     min-height: 700px;
   }
-  .hero-orb {
+  .portada-brillo {
     right: -15%;
     top: 22%;
     width: 70vw;
   }
-  .story,
-  .author-section,
-  .manga-section,
-  .about-section,
-  .contact-section {
+  .historia,
+  .seccion-autora,
+  .seccion-manga,
+  .seccion-nosotros,
+  .seccion-contacto {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .story-image,
-  .story-image img {
-    height: 430px;
-    min-height: 430px;
+  .historia-imagen,
+  .historia-imagen img {
+    height: 430px !important;
   }
-  .section-heading {
+  .encabezado-seccion {
     align-items: start;
     flex-direction: column;
     gap: 12px;
   }
-  .heading-note {
+  .nota-encabezado {
     max-width: 550px;
   }
-  .character-tools {
+  .herramientas-personajes {
     align-items: stretch;
     flex-direction: column;
   }
-  .search {
+  .buscador {
     max-width: none;
   }
-  .timeline {
+  .linea-tiempo {
     grid-template-columns: 1fr;
   }
-  .manga-covers {
+  .portadas-manga {
     max-width: 520px;
     width: 100%;
     margin: auto;
   }
-  .about-symbol {
+  .simbolo-nosotros {
     height: 280px;
   }
-  .footer-top {
+  .superior-pie {
     align-items: flex-start;
     flex-wrap: wrap;
   }
-  .footer-links {
+  .enlaces-pie {
     order: 3;
     width: 100%;
   }
 }
 
 @media (max-width: 560px) {
-  .topbar {
+  .barra-superior {
     height: 68px;
     padding: 0 17px;
   }
-  .nav-links {
+  .enlaces-navegacion {
     top: 67px;
   }
-  .hero {
+  .portada {
     min-height: 670px;
     padding: 80px 23px;
   }
-  .hero-shade {
-    background: linear-gradient(90deg, rgba(10, 11, 12, .94), rgba(10, 11, 12, .55)), 
+  .portada-sombra {
+    background: linear-gradient(90deg, rgba(10, 11, 12, .94), rgba(10, 11, 12, .55)),              
                 linear-gradient(0deg, rgba(10, 11, 12, .8), transparent);
   }
-  .hero-orb {
+  .portada-brillo {
     width: 90vw;
     right: -38%;
     top: 20%;
   }
-  .hero-index {
+  .portada-indice {
     display: none;
   }
-  .hero-content h1 {
-    font-size: 44px;
-    letter-spacing: -1px;
+  .portada-contenido h1 {
+    font-size: 36px;
+    letter-spacing: 0;
   }
-  .hero-content h1 em {
-    font-size: 13px;
+  .portada-contenido h1 em {
+    font-size: 12px;
     letter-spacing: 2px;
   }
-  .hero-content > p {
+  .portada-contenido > p {
     font-size: 13px;
   }
-  .hero-actions {
+  .portada-acciones {
     align-items: stretch;
     flex-direction: column;
     max-width: 290px;
   }
-  .section {
+  .seccion {
     padding: 70px 20px;
   }
-  .character-section,
-  .facts-section,
-  .timeline-section,
-  .film-section,
-  .about-section {
+  .seccion-personajes,
+  .seccion-datos,
+  .seccion-cronologia,
+  .seccion-peliculas,
+  .seccion-nosotros {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .story-image,
-  .story-image img {
-    height: 360px;
-    min-height: 360px;
+  .historia-imagen,
+  .historia-imagen img {
+    height: 360px !important;
   }
-  .story-stats {
+  .historia-estadisticas {
     gap: 24px;
   }
-  .story-copy h2,
-  .manga-copy h2,
-  .author-copy h2,
-  .about-copy h2,
-  .contact-intro h2 {
-    font-size: 35px;
+  .historia-copia h2,
+  .manga-copia h2,
+  .copia-autora h2,
+  .copia-nosotros h2,
+  .introduccion-contacto h2 {
+    font-size: 32px;
   }
-  .character-grid,
-  .facts-grid,
-  .films {
+  .cuadricula-personajes,
+  .cuadricula-datos,
+  .peliculas-rejilla {
     grid-template-columns: 1fr;
   }
-  .character-visual {
+  .visual-personaje {
     height: 165px;
   }
-  .character-info p {
+  .info-personaje p {
     min-height: 0;
   }
-  .fact-card {
+  .tarjeta-dato {
     padding: 0 14px;
   }
-  .timeline-card {
+  .tarjeta-linea-tiempo {
     padding: 22px 16px 18px 55px;
   }
-  .timeline-dot {
+  .punto-linea-tiempo {
     left: 14px;
   }
-  .timeline-meta {
+  .meta-linea-tiempo {
     font-size: 8px;
   }
-  .film-card {
+  .tarjeta-pelicula {
     height: 410px;
   }
-  .manga-cover {
-    min-height: 170px;
-    padding: 12px;
-  }
-  .manga-cover span {
-    font-size: 43px;
-  }
-  .manga-cover h3 {
-    font-size: 12px;
-  }
-  .author-art {
+  .arte-autora {
     min-height: 320px;
   }
-  .ink-circle {
-    width: 180px;
-    height: 180px;
-  }
-  .ink-circle span {
-    font-size: 80px;
-  }
-  .author-caption {
+  .pie-autora {
     left: 15px;
     right: 15px;
   }
-  .author-caption b {
+  .pie-autora b {
     font-size: 12px;
   }
-  .author-caption small {
+  .pie-autora small {
     font-size: 8px;
   }
-  .author-timeline {
+  .cronologia-autora {
     gap: 8px;
   }
-  .about-values {
+  .valores-nosotros {
     gap: 8px;
   }
-  .about-values h3 {
+  .valores-nosotros h3 {
     font-size: 12px;
   }
-  .about-values p {
+  .valores-nosotros p {
     font-size: 9px;
   }
-  .contact-form {
+  .formulario-contacto {
     padding: 19px;
   }
-  .footer {
+  .pie-pagina {
     padding: 35px 20px 22px;
   }
-  .footer-top {
+  .superior-pie {
     gap: 22px;
   }
-  .footer-links {
+  .enlaces-pie {
     gap: 12px 17px;
   }
-  .footer-social {
+  .social-pie {
     width: 100%;
   }
-  .character-modal {
+  .ventana-modal {
     padding: 30px 23px;
   }
-  .modal-mark {
+  .marca-modal {
     font-size: 55px;
   }
 }
