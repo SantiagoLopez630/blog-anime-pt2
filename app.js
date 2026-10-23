@@ -27,7 +27,7 @@ const informacionPeliculas = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Referencias a elementos del DOM actualizados en español
+  
   const cuadriculaPersonajes = document.querySelector('#cuadricula-personajes');
   const entradaBusqueda = document.querySelector('#entrada-busqueda-personaje');
   const botonesFiltro = [...document.querySelectorAll('[data-filter]')];
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     anioActual.textContent = new Date().getFullYear();
   }
 
-  // Renderizar personajes
+  
   function renderizarPersonajes(lista) {
     if (!cuadriculaPersonajes) return;
     
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderizarPersonajes(personajes);
 
-  // Filtrado y búsqueda
+  
   let filtroActual = 'Todos';
 
   function filtrarDatos() {
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Evento de clic en tarjetas de personajes (Abrir Modal)
+ 
   if (cuadriculaPersonajes) {
     cuadriculaPersonajes.addEventListener('click', (e) => {
       const tarjeta = e.target.closest('.tarjeta-personaje');
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Modales de información cinematográfica
+
   document.querySelectorAll('[data-film]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const tipo = e.currentTarget.getAttribute('data-film');
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar modales
+
   document.querySelectorAll('.cerrar-modal, .fondo-modal').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.target === el || e.target.classList.contains('cerrar-modal')) {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Menú desplegable para móviles
+
   if (botonMenu && enlacesNavegacion) {
     botonMenu.addEventListener('click', () => {
       const abierto = enlacesNavegacion.classList.toggle('abierto');
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Navegación fluida por botones [data-go]
+
   document.querySelectorAll('[data-go]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const objetivo = e.currentTarget.getAttribute('data-go');
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Botón Volver Arriba y barra de navegación activa
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 400) {
       if (botonArriba) botonArriba.hidden = false;

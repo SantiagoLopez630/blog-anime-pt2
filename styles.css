@@ -11,7 +11,7 @@
   --red-bright: #fa2702;
   --line: rgba(255, 255, 255, .12);
 
-  /* Variables de tipografía configuradas con tus nuevas fuentes */
+
   --fuente-titulos: 'Uncial Antiqua', cursive, serif;
   --fuente-cuerpo: 'Varela Round', sans-serif;
   --fuente-manuscrita: 'Gwendolyn', cursive;
@@ -79,7 +79,7 @@ p {
   font-family: var(--fuente-cuerpo);
 }
 
-/* Aplicación de Uncial Antiqua a todos los títulos */
+
 h1, h2, h3 {
   font-family: var(--fuente-titulos);
   font-weight: 400;

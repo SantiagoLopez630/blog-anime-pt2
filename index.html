@@ -1,423 +1,373 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Archivo de cazadores: historia, personajes y curiosidades de Demon Slayer. Blog creado por fans para fans.">
   <title>Demon Slayer Blog | Archivo de cazadores</title>
-    <!--Fuentes-->
+  
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Uncial+Antiqua&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Varela+Round&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&family=Uncial+Antiqua&family=Varela+Round&display=swap"rel="stylesheet">
-
-    <!--Bootstrap-->
-
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
-<body>
-  <header class="barra-superior">
-    <button class="marca" data-go="inicio" aria-label="Ir al inicio">
-      <span class="sello-marca">滅</span>
-      <span>DEMON SLAYER <b>BLOG</b></span>
-    </button>
-    <button class="alternar-menu" aria-label="Abrir menú" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="enlaces-navegacion" aria-label="Navegación principal">
-      <button data-go="inicio" class="activo">Inicio</button>
-      <button data-go="historia">Historia</button>
-      <button data-go="personajes">Personajes</button>
-      <button data-go="temporadas">Temporadas</button>
-      <button data-go="curiosidades">Curiosidades</button>
-      <button data-go="manga">Manga</button>
-      <button data-go="peliculas">Películas</button>
-      <button data-go="creadora">Creadora</button>
-      <button data-go="quienes-somos">Quiénes somos</button>
-      <button data-go="contacto">Contacto</button>
-    </nav>
+
+<body class="bg-black text-light">
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <header class="barra-superior navbar navbar-expand-lg navbar-dark bg-black fixed-top border-bottom border-secondary px-4">
+    <div class="container-fluid">
+      <button class="marca btn btn-link text-decoration-none text-light d-flex align-items-center gap-2 p-0 border-0" data-go="inicio">
+        <span class="sello-marca badge text-bg-danger fs-5">滅</span>
+        <span class="fs-5 fw-bold tracking-wider">DEMON SLAYER <b class="text-danger">BLOG</b></span>
+      </button>
+      <button class="alternar-menu navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse justify-content-end enlaces-navegacion" id="navbarNav">
+        <div class="navbar-nav gap-2 text-center text-lg-start mt-3 mt-lg-0">
+          <button class="btn btn-sm btn-dark text-light active" data-go="inicio">Inicio</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="historia">Historia</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="personajes">Personajes</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="temporadas">Temporadas</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="curiosidades">Curiosidades</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="manga">Manga</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="peliculas">Películas</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="creadora">Creadora</button>
+          <button class="btn btn-sm btn-dark text-light" data-go="quienes-somos">Quiénes somos</button>
+          <button class="btn btn-sm btn-danger text-light fw-bold" data-go="contacto">Contacto</button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="inicio" class="portada" style="--imagen-portada:url('https://logos-world.net/wp-content/uploads/2021/12/Demon-Slayer-Emblem.png')">
-      <div class="portada-sombra"></div>
-      <div class="portada-brillo"></div>
-      <div class="portada-contenido">
-        <div class="portada-etiqueta"><span>鬼滅の刃</span><i></i> Archivo de cazadores</div>
-        <h1>DEMON SLAYER<em>KIMETSU NO YAIBA</em></h1>
-        <p>Una historia de valor, sacrificio y esperanza en un mundo donde la humanidad lucha contra los demonios.</p>
-        <div class="portada-acciones">
-          <button class="btn primario" data-go="historia">Explorar el universo <span class="flecha">↗</span></button>
-          <button class="btn fantasma" data-go="personajes">Conocer personajes</button>
-        </div>
-      </div>
-      <div class="portada-indice"><span>01</span><i></i><small>El inicio de una leyenda</small></div>
-      <div class="indicador-desplazamiento"><i></i> DESLIZA PARA EXPLORAR</div>
-    </section>
-
-    <section id="historia" class="seccion historia">
-      <div class="historia-imagen marco-revelacion">
-        <img src="https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_.jpg" alt="Santuario japonés entre un bosque cubierto de niebla">
-        <div class="sello-imagen">家族<small>FAMILIA</small></div>
-        <p>«No importa cuántas personas pierdas, no tienes más remedio que seguir viviendo.»</p>
-      </div>
-      <div class="historia-copia">
-        <p class="subtitulo">La historia comienza</p>
-        <h2>UN VIAJE NACIDO<br>DE LA <span>TRAGEDIA</span></h2>
-        <p class="parrafo-destacado">En las montañas del Japón de la era Taishō, un joven bondadoso ve su vida transformada en una noche.</p>
-        <p>Después de que un demonio ataca a su familia y su hermana Nezuko se convierte en uno, Tanjiro Kamado emprende un viaje para devolverle su humanidad. Para lograrlo deberá dominar la espada, unirse al Cuerpo de Exterminio y mirar a los demonios sin perder su propia compasión.</p>
-        <div class="etiqueta-genero">Acción <i></i> Aventura <i></i> Fantasía oscura <i></i> Drama</div>
-        <div class="historia-estadisticas">
-          <div><strong>23</strong><span>Volúmenes</span></div>
-          <div><strong>205</strong><span>Capítulos</span></div>
-          <div><strong>9</strong><span>Hashira</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="personajes" class="seccion seccion-personajes">
-      <div class="encabezado-seccion">
-        <div>
-          <p class="subtitulo">Cuerpo de exterminio</p>
-          <h2>ROSTROS DE LA BATALLA</h2>
-        </div>
-        <p class="nota-encabezado">Cada respiración nace de una historia. Conoce a quienes se enfrentan a la noche.</p>
-      </div>
-      <div class="herramientas-personajes">
-        <label class="buscador">
-          <span aria-hidden="true">⌕</span>
-          <input id="entrada-busqueda-personaje" type="search" placeholder="Buscar personaje o respiración...">
-        </label>
-        <div class="filtros" aria-label="Filtrar personajes">
-          <button class="seleccionado" data-filter="Todos">Todos</button>
-          <button data-filter="Cazadores">Cazadores</button>
-          <button data-filter="Hashira">Hashira</button>
-        </div>
-      </div>
-      <div id="cuadricula-personajes" class="cuadricula-personajes"></div>
-      <p id="personajes-vacio" class="vacio" hidden>No se encontraron cazadores con ese criterio.</p>
-    </section>
-
-    <section id="curiosidades" class="seccion seccion-datos">
-      <div class="encabezado-seccion">
-        <div>
-          <p class="subtitulo">Archivo secreto</p>
-          <h2>DETALLES QUE QUIZÁ NO VISTE</h2>
-        </div>
-        <p class="nota-encabezado">Abre cada registro para descubrir la tradición, las reglas y los secretos detrás de la obra.</p>
-      </div>
-      <div class="cuadricula-datos">
-        <details class="tarjeta-dato"><summary><span>01</span><h3>El nombre</h3><b>+</b></summary><p>Kimetsu no Yaiba puede interpretarse como «espada de destrucción demoníaca», una síntesis de su conflicto central.</p></details>
-        <details class="tarjeta-dato"><summary><span>02</span><h3>Respiraciones</h3><b>+</b></summary><p>Son técnicas de concentración total que llevan el cuerpo humano a su máximo rendimiento.</p></details>
-        <details class="tarjeta-dato"><summary><span>03</span><h3>Espadas Nichirin</h3><b>+</b></summary><p>Forjadas con minerales expuestos al sol, cambian de color según su portador y reflejan su estilo de combate.</p></details>
-        <details class="tarjeta-dato"><summary><span>04</span><h3>Rangos</h3><b>+</b></summary><p>El Cuerpo posee diez rangos. Mizunoto es el inicial y Kinoe el más alto antes del título de Hashira.</p></details>
-        <details class="tarjeta-dato"><summary><span>05</span><h3>Los Hashira</h3><b>+</b></summary><p>Son los espadachines de élite. Cada Pilar domina una rama particular de las respiraciones.</p></details>
-        <details class="tarjeta-dato"><summary><span>06</span><h3>Anime y manga</h3><b>+</b></summary><p>La adaptación expande combates y transiciones, mientras conserva el núcleo emocional de la obra original.</p></details>
-      </div>
-    </section>
-
-<section id="temporadas" class="seccion seccion-cronologia">
-      <div class="encabezado-seccion mb-5">
-        <div>
-          <p class="subtitulo mb-1">Guía del anime</p>
-          <h2 class="display-6">TEMPORADAS Y ARCOS</h2>
-        </div>
-        <p class="nota-encabezado">El orden para ver las temporadas y películas sin perderte.</p>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">1</span>
-                <small class="text-muted">Temporada 1 · <b>2019</b></small>
+  <main style="padding-top: 76px;">
+    
+    <!-- PORTADA -->
+    <section id="inicio" class="hero position-relative py-5 text-light bg-dark overflow-hidden min-vh-100 d-flex align-items-center"
+      style="background: linear-gradient(0deg, rgba(7, 8, 9, 0.9), rgba(7, 8, 9, 0.6)), url('https://logos-world.net/wp-content/uploads/2021/12/Demon-Slayer-Emblem.png') center/cover no-repeat;">
+      <div class="container py-5 position-relative z-1">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-8">
+            <div class="hero-content">
+              <span class="badge text-bg-danger mb-3 px-3 py-2 text-uppercase tracking-wider">鬼滅の刃 · Blog de cazadores</span>
+              <h1 class="display-3 fw-bold text-uppercase mb-3">DEMON SLAYER <span class="text-danger d-block fs-2">KIMETSU NO YAIBA</span></h1>
+              <div class="hero-actions d-flex flex-wrap gap-3">
+                <button class="btn btn-danger btn-lg rounded-0 fw-bold text-uppercase px-4 py-3" data-go="historia">Explorar el universo <span class="ms-2"></span></button>
+                <button class="btn btn-outline-light btn-lg rounded-0 fw-bold text-uppercase px-4 py-3" data-go="personajes">Conocer personajes</button>
               </div>
-              <h3 class="card-title h5 titulo-tarjeta">Selección Final</h3>
-              <p class="card-text text-secondary mt-2 mb-0">Tanjiro entrena duro tras el ataque a su familia para pasar el examen de cazador.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">Episodios 1–7</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">2</span>
-                <small class="text-muted">Temporada 1 · <b>2019</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Mansión Tsuzumi</h3>
-              <p class="card-text text-secondary mt-2 mb-0">Aquí conoce a Zenitsu e Inosuke en una casa que cambia con tambores.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">Episodios 11–14</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">3</span>
-                <small class="text-muted">Temporada 1 · <b>2019</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Montaña Natagumo</h3>
-              <p class="card-text text-secondary mt-2 mb-0">La pelea contra la familia araña donde el grupo casi no la cuenta.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">Episodios 15–21</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">4</span>
-                <small class="text-muted">Película / TV · <b>2020–21</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Tren Infinito</h3>
-              <p class="card-text text-secondary mt-2 mb-0">La misión con Rengoku investigando las desapariciones en el tren.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">Película + 7 eps</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">5</span>
-                <small class="text-muted">Temporada 2 · <b>2021–22</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Distrito Rojo</h3>
-              <p class="card-text text-secondary mt-2 mb-0">Se infiltran con Tengen Uzui para buscar a sus esposas y enfrentar a Daki y Gyutaro.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">11 episodios</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">6</span>
-                <small class="text-muted">Temporada 3 · <b>2023</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Aldea de los Herreros</h3>
-              <p class="card-text text-secondary mt-2 mb-0">Tanjiro va por una nueva espada y terminan defendiendo la aldea secreta.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">11 episodios</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">7</span>
-                <small class="text-muted">Temporada 4 · <b>2024</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Entrenamiento Hashira</h3>
-              <p class="card-text text-secondary mt-2 mb-0">El entrenamiento intensivo con todos los Pilares antes de la guerra final.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">8 episodios</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card h-100 bg-dark text-light border-secondary">
-            <div class="card-body d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge text-bg-danger fs-6">8</span>
-                <small class="text-muted">Trilogía · <b>2025—</b></small>
-              </div>
-              <h3 class="card-title h5 titulo-tarjeta">Castillo Infinito</h3>
-              <p class="card-text text-secondary mt-2 mb-0">La batalla final contra Muzan y las lunas superiores restantes.</p>
-            </div>
-            <div class="card-footer bg-transparent border-secondary py-2">
-              <small class="text-muted">Películas</small>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="manga" class="py-5 bg-dark text-light">
+    <!-- HISTORIA -->
+    <section id="historia" class="py-5 bg-black text-light border-bottom border-secondary">
       <div class="container py-4">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-6">
-            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Manga original</p>
-            <h2 class="display-4 fw-normal mb-4">SOBRE EL<br><span class="text-danger">MANGA</span></h2>
-            
-            <p class="lead text-secondary mb-4 fs-6">
-              Salió en la revista <i>Weekly Shōnen Jump</i> entre 2016 y 2020. En total son 23 tomos creados por Koyoharu Gotouge.
-            </p>
-
-            <ul class="list-group list-group-flush border-top border-bottom border-secondary mb-4">
-              <li class="list-group-item bg-transparent text-light border-secondary py-3 d-flex align-items-center px-0">
-                <span class="badge text-bg-danger me-3 fs-6">01</span>
-                <span>Si quieres leer la historia desde cero, empieza por el <b>Volumen 1</b>.</span>
-              </li>
-              <li class="list-group-item bg-transparent text-light border-secondary py-3 d-flex align-items-center px-0">
-                <span class="badge text-bg-danger me-3 fs-6">02</span>
-                <span>La historia termina en el <b>Volumen 23</b> sin más tomos extra.</span>
-              </li>
-              <li class="list-group-item bg-transparent text-light border-secondary py-3 d-flex align-items-center px-0">
-                <span class="badge text-bg-danger me-3 fs-6">03</span>
-                <span>El anime cambia un poco el ritmo, pero respeta bastante el manga.</span>
-              </li>
-            </ul>
-
-            <button type="button" class="btn btn-danger btn-lg rounded-0 fw-bold text-uppercase px-4 py-3" data-go="contacto">
-              Déjanos un mensaje <span class="ms-2">↗</span>
-            </button>
-          </div>
-
-          <div class="col-12 col-lg-6 text-center">
-            <div class="card bg-black border-secondary p-3 shadow-lg d-inline-block">
-              <img src="https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/9/92/Kimetsu_no_Yaiba_V1jap.png/revision/latest?cb=20190925044832&path-prefix=es" 
-                   alt="Volumen 1 del manga Demon Slayer" 
-                   class="card-img-top img-fluid rounded"
-                   style="max-height: 480px; width: auto; object-fit: contain;">
-              <div class="card-body p-2 mt-2">
-                <small class="text-secondary text-uppercase fw-bold">Koyoharu Gotouge · Shueisha</small>
+            <div class="card bg-dark border-secondary p-3 shadow-lg position-relative">
+              <img src="https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_.jpg" 
+                   alt="Santuario japonés" 
+                   class="card-img-top img-fluid rounded" style="max-height: 400px; object-fit: cover;">
+              <div class="card-body px-0 pt-3">
+                <blockquote class="blockquote text-secondary fs-6 mb-0 fst-italic">
+                  «No importa cuántas personas pierdas, no tienes más remedio que seguir viviendo.»
+                </blockquote>
               </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h2 class="display-4 fw-normal mb-4">UN VIAJE NACIDO<br>DE LA <span class="text-danger">TRAGEDIA</span></h2>
+            <p class="lead text-secondary mb-3 fs-6">En las montañas del Japón de la era Taishō, un joven bondadoso ve su vida transformada en una noche. Después de que un demonio ataca a su familia y su hermana Nezuko se convierte en uno, Tanjiro Kamado
+                emprende un viaje para devolverle su humanidad. Para lograrlo deberá dominar la espada, unirse al Cuerpo
+                de Exterminio y mirar a los demonios sin perder su propia compasión.</p>
+            
+
+            <div class="row text-center border-top border-secondary pt-3 g-3">
+              <div class="col-4"><h4 class="text-danger fw-bold mb-0">23</h4><small class="text-secondary">Volúmenes</small></div>
+              <div class="col-4"><h4 class="text-danger fw-bold mb-0">205</h4><small class="text-secondary">Capítulos</small></div>
+              <div class="col-4"><h4 class="text-danger fw-bold mb-0">9</h4><small class="text-secondary">Hashira</small></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="peliculas" class="py-5 bg-black text-light">
+    <!-- PERSONAJES -->
+    <section id="personajes" class="py-5 bg-dark text-light border-bottom border-secondary">
       <div class="container py-4">
-        <div class="row mb-5 align-items-end">
-          <div class="col-12 col-lg-8">
-            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Cine</p>
-            <h2 class="display-4 fw-normal mb-0">PELÍCULAS</h2>
+        <div class="encabezado-seccion mb-4">
+          <div>
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-1 fs-6">Cuerpo de cazadores</p>
+            <h2 class="display-5 fw-normal text-light">ROSTROS DE LA BATALLA</h2>
           </div>
-          <div class="col-12 col-lg-4 mt-3 mt-lg-0">
-            <p class="nota-encabezado text-secondary mb-0">Los grandes estrenos que han salido en cines.</p>
+          <p class="nota-encabezado text-secondary fs-6">Cada respiración nace de una historia. Conoce a quienes se enfrentan a la noche.</p>
+        </div>
+
+        <div class="row g-4" id="character-grid">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://coanime.s3.us-east-2.amazonaws.com/posts/2023/01/2922/82c5485965c0211efd536f9c1e5e59dde01760e60c79d1e75952a95bcda84efd.webp"
+                  class="card-img-top rounded-0 mb-3" alt="Tanjiro Kamado" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Tanjiro Kamado</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración del Agua - Respiracion del sol</small>
+              </div>
+            </article>
           </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2023/04/25/6900dcae4b415.jpeg"
+                  class="card-img-top rounded-0 mb-3" alt="Nezuko Kamado" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Nezuko Kamado</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Arte Demoníaco de Sangre</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://m.media-amazon.com/images/M/MV5BZjVjMjQ2NDYtOGJkNy00OWJjLWE4ZTAtNzJlZjQ2ODk3YWQwXkEyXkFqcGc@._V1_.jpg"
+                  class="card-img-top rounded-0 mb-3" alt="Zenitsu Agatsuma" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Zenitsu Agatsuma</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración del rayo</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://preview.redd.it/inosuke-is-lucky-that-gyutaro-didnt-see-his-face-v0-ea9yrx03sr9c1.jpeg?auto=webp&amp;s=fcd5727465b204e7a333cffc2fa9237d7ff1b83b"
+                  class="card-img-top rounded-0 mb-3" alt="Inosuke Hashibira" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Inosuke Hashibira</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración de la Bestia</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://preview.redd.it/happy-birthday-giyu-tomioka-v0-m543rxc6gyga1.jpg?auto=webp&amp;s=e4df0fae3276c61ae4160593047a5281dc697eb3"
+                  class="card-img-top rounded-0 mb-3" alt="Giyu Tomioka" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Giyu Tomioka</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiracion del agua</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://katana-canada.ca/cdn/shop/articles/rengoku-sword-flame-hashira-hero.png?v=1766417850&amp;width=1100"
+                  class="card-img-top rounded-0 mb-3" alt="Kyojuro Rengoku" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Kyojuro Rengoku</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración de la llama</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://okamisamatv.com/wp-content/uploads/2026/04/Demon-Slayer-Kimetsu-no-Yaiba-The-Hinokami-Chronicles-2-Shinobu-Infinity-Castle-1-scaled.png"
+                  class="card-img-top rounded-0 mb-3" alt="Shinobu Kocho" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Shinobu Kocho</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiracion del insecto</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=70,width=1200,height=675/catalog/crunchyroll/ba7e0f4ca15bf4299d54286ceadd6296.png"
+                  class="card-img-top rounded-0 mb-3" alt="Muichiro Tokito" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Muichiro Tokito</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración de la niebla</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsR5BsVdVbJsCIeBCszLvySY_DsXiApqpLEc1dNR-wwGMPRkfg5_17J5DA&amp;s=10"
+                  class="card-img-top rounded-0 mb-3" alt="Mitsuri Kanroji" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Mitsuri Kanroji</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración del amor</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://www.nintenderos.com/wp-content/uploads/2022/06/Demon-Slayer.jpg"
+                  class="card-img-top rounded-0 mb-3" alt="Tengen Uzui" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Tengen Uzui</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiracion del sonido</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/07/who-is-sanemi-shinazugawa-in-demon-slayer.jpg?w=1200&amp;h=675&amp;fit=crop"
+                  class="card-img-top rounded-0 mb-3" alt="Sanemi Shinazugawa" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Sanemi Shinazugawa</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración del viento</small>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <article class="card bg-black text-light h-100 border-secondary rounded-0 shadow">
+              <div class="card-body d-flex flex-column p-3">
+                <img src="https://images3.alphacoders.com/136/thumb-1920-1366567.png"
+                  class="card-img-top rounded-0 mb-3" alt="Gyomei Himejima" loading="lazy" style="height: 220px; object-fit: cover;">
+                <h3 class="card-title h5 fw-bold mb-1 text-light">Gyomei Himejima</h3>
+                <p class="card-text text-secondary small mb-1">Habilidades:</p>
+                <small class="text-danger fw-semibold">Respiración de la Roca</small>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section id="curiosidades" class="py-5 bg-black text-light border-bottom border-secondary">
+      <div class="container py-4">
+        <div class="encabezado-seccion mb-4">
+          <div>
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-1 fs-6">Archivo secreto</p>
+            <h2 class="display-5 fw-normal text-light">DETALLES QUE QUIZÁ NO VISTE</h2>
+          </div>
+          <p class="nota-encabezado text-secondary fs-6">Abre cada registro para descubrir la tradición, las reglas y los secretos detrás de la obra.</p>
+        </div>
+        
+        <div class="row g-3">
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">01 · El nombre</summary><p class="text-secondary mt-2 mb-0 small">Kimetsu no Yaiba puede interpretarse como «espada de destrucción demoníaca», una síntesis de su conflicto central.</p></details></div>
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">02 · Respiraciones</summary><p class="text-secondary mt-2 mb-0 small">Son técnicas de concentración total que llevan el cuerpo humano a su máximo rendimiento.</p></details></div>
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">03 · Espadas Nichirin</summary><p class="text-secondary mt-2 mb-0 small">Forjadas con minerales expuestos al sol, cambian de color según su portador y reflejan su estilo de combate.</p></details></div>
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">04 · Rangos</summary><p class="text-secondary mt-2 mb-0 small">El Cuerpo posee diez rangos. Mizunoto es el inicial y Kinoe el más alto antes del título de Hashira.</p></details></div>
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">05 · Los Hashira</summary><p class="text-secondary mt-2 mb-0 small">Son los espadachines de élite. Cada Pilar domina una rama particular de las respiraciones.</p></details></div>
+          <div class="col-12 col-md-6"><details class="card bg-dark text-light border-secondary p-3 rounded-0"><summary class="fw-bold fs-5 cursor-pointer text-danger">06 · Anime y manga</summary><p class="text-secondary mt-2 mb-0 small">La adaptación expande combates y transiciones, mientras conserva el núcleo emocional de la obra original.</p></details></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMPORADAS -->
+    <section id="temporadas" class="py-5 bg-dark text-light border-bottom border-secondary">
+      <div class="container py-4">
+        <div class="encabezado-seccion mb-5">
+          <div>
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-1 fs-6">Crónica de la misión</p>
+            <h2 class="display-5 fw-normal text-light">ARCOS &amp; TEMPORADAS</h2>
+          </div>
+          <p class="nota-encabezado text-secondary fs-6">Una guía cronológica de la aventura, desde la selección final hasta la saga definitiva.</p>
         </div>
 
         <div class="row g-4">
-          <div class="col-12 col-lg-6">
-            <div class="card h-100 bg-dark text-light border-secondary position-relative overflow-hidden shadow">
-              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://m.media-amazon.com/images/I/81ywJT+vlVL._AC_UF894,1000_QL80_.jpg') center/cover no-repeat; filter: brightness(0.5); z-index: 0;"></div>
-              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(0deg, rgba(7, 8, 9, 0.95) 0%, rgba(7, 8, 9, 0.3) 100%); z-index: 1;"></div>
-              
-              <div class="card-body d-flex flex-column justify-content-between p-4 p-md-5 position-relative" style="z-index: 2; min-height: 420px;">
-                <div>
-                  <span class="badge text-bg-danger mb-3 py-2 px-3 fw-bold">2020</span>
-                  <h3 class="display-6 fw-bold mb-3">MUGEN<br>TRAIN</h3>
-                  <p class="text-light opacity-75 small">La misión con Rengoku investigando los pasajeros que desaparecen en el tren.</p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-outline-light btn-sm fw-bold text-uppercase rounded-0 px-4 py-2 mt-3" data-film="mugen">
-                    Ver más <span class="ms-1">↗</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">1</span><h3 class="h5 fw-bold">Selección Final</h3><p class="text-secondary small">La tragedia de los Kamado impulsa a Tanjiro a entrenar y enfrentar la prueba definitiva.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">Episodios 1–7</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">2</span><h3 class="h5 fw-bold">Mansión Tsuzumi</h3><p class="text-secondary small">Nuevos compañeros, habitaciones cambiantes y el sonido de un tambor mortal.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">Episodios 11–14</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">3</span><h3 class="h5 fw-bold">Montaña Natagumo</h3><p class="text-secondary small">Una familia de demonios araña lleva al equipo más allá de sus límites.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">Episodios 15–21</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">4</span><h3 class="h5 fw-bold">Tren Infinito</h3><p class="text-secondary small">Un viaje nocturno junto al Pilar de la Llama se convierte en una prueba inolvidable.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">Película + 7 eps</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">5</span><h3 class="h5 fw-bold">Distrito del Entretenimiento</h3><p class="text-secondary small">Luces, misterio y una batalla deslumbrante en el distrito de Yoshiwara.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">11 episodios</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">6</span><h3 class="h5 fw-bold">Aldea de los Herreros</h3><p class="text-secondary small">El corazón secreto de las espadas Nichirin es atacado por Lunas Superiores.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">11 episodios</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">7</span><h3 class="h5 fw-bold">Entrenamiento Hashira</h3><p class="text-secondary small">Los cazadores perfeccionan cuerpo y mente antes del enfrentamiento final.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">8 episodios</div></div></div>
+          <div class="col-12 col-md-6 col-lg-4"><div class="card h-100 bg-black text-light border-secondary rounded-0"><div class="card-body"><span class="badge text-bg-danger mb-2">8</span><h3 class="h5 fw-bold">Castillo Infinito</h3><p class="text-secondary small">El campo de batalla cambia para siempre en el territorio de Muzan.</p></div><div class="card-footer bg-transparent border-secondary text-muted small">Saga final</div></div></div>
+        </div>
+      </div>
+    </section>
 
+    <!-- MANGA -->
+    <section id="manga" class="py-5 bg-black text-light border-bottom border-secondary">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
           <div class="col-12 col-lg-6">
-            <div class="card h-100 bg-dark text-light border-secondary position-relative overflow-hidden shadow">
-              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://a.storyblok.com/f/178900/1774x2507/a43e0fc3c5/demon-slayer-kimetsu-no-yaiba-infinity-castle-doma-vs-shinobu-english-visual.jpeg/m/filters:quality(95)format(webp)') center/cover no-repeat; filter: brightness(0.5); z-index: 0;"></div>
-              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(0deg, rgba(7, 8, 9, 0.95) 0%, rgba(7, 8, 9, 0.3) 100%); z-index: 1;"></div>
-              
-              <div class="card-body d-flex flex-column justify-content-between p-4 p-md-5 position-relative" style="z-index: 2; min-height: 420px;">
-                <div>
-                  <span class="badge text-bg-danger mb-3 py-2 px-3 fw-bold">2025—</span>
-                
-                  <h3 class="display-6 fw-bold mb-3">INFINITY<br>CASTLE</h3>
-                  <p class="text-light opacity-75 small">La trilogía de películas para adaptar toda la batalla final del manga.</p>
-                </div>
-                <div>
-                  <button type="button" class="btn btn-outline-light btn-sm fw-bold text-uppercase rounded-0 px-4 py-2 mt-3" data-film="infinity">
-                    Ver más <span class="ms-1">↗</span>
-                  </button>
-                </div>
-              </div>
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">La obra original</p>
+            <h2 class="display-4 fw-normal mb-4">DEL PAPEL A<br><span class="text-danger">LA LEYENDA</span></h2>
+            <p class="lead text-secondary mb-4 fs-6">Publicado en <i>Weekly Shōnen Jump</i> entre 2016 y 2020, el manga de Koyoharu Gotouge cuenta la historia completa en 23 volúmenes.</p>
+            <ul class="list-group list-group-flush border-top border-bottom border-secondary mb-4">
+              <li class="list-group-item bg-transparent text-light border-secondary py-3"><b>1</b> Comienza por el Volumen 1.</li>
+              <li class="list-group-item bg-transparent text-light border-secondary py-3"><b>2</b> Concluye oficialmente en el Volumen 23.</li>
+              <li class="list-group-item bg-transparent text-light border-secondary py-3"><b>3</b> El anime respeta fielmente el eje del manga.</li>
+            </ul>
+            <button class="btn btn-danger btn-lg rounded-0 fw-bold text-uppercase px-4 py-3" data-go="contacto">Habla con el blog <span class="ms-2">↗</span></button>
+          </div>
+          <div class="col-12 col-lg-6 text-center">
+            <div class="card bg-dark border-secondary p-3 shadow-lg d-inline-block rounded-0">
+              <img src="https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/9/92/Kimetsu_no_Yaiba_V1jap.png/revision/latest?cb=20190925044832&path-prefix=es" alt="Manga" class="img-fluid rounded-0" style="max-height: 400px;">
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="row mt-4">
+    <!-- PELÍCULAS -->
+    <section id="peliculas" class="py-5 bg-dark text-light border-bottom border-secondary">
+      <div class="container py-4">
+        <div class="row mb-4">
           <div class="col-12">
-            <p class="nota-pelicula text-secondary small mb-0 text-center text-lg-start">Aviso: Algunas "películas" en cine fueron solo episodios juntados antes de estrenar temporada.</p>
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-1 fs-6">En la gran pantalla</p>
+            <h2 class="display-4 fw-normal mb-0">CINE DEMON SLAYER</h2>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="creadora" class="py-5 bg-dark text-light">
-      <div class="container py-4">
-        <div class="row align-items-center g-5">
-          <div class="col-12 col-lg-6 text-center">
-            <div class="card bg-black border-secondary p-3 shadow-lg d-inline-block w-100" style="max-width: 480px;">
-              <img src="https://sta.articulo14.es/main-files/uploads/2026/02/Koyoharu-Gotouge-362x204.jpeg" 
-                   alt="Koyoharu Gotouge" 
-                   class="card-img-top img-fluid rounded object-fit-cover"
-                   style="height: 320px;">
-              <div class="card-body d-flex justify-content-between align-items-center p-3 mt-2 text-start">
+        <div class="row g-4">
+          <!-- Película 1 -->
+          <div class="col-12 col-lg-6">
+            <div class="card bg-dark text-light border-secondary rounded-0 h-100 position-relative overflow-hidden shadow" style="min-height: 380px;">
+              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://m.media-amazon.com/images/I/81ywJT+vlVL._AC_UF894,1000_QL80_.jpg') center/cover no-repeat; filter: brightness(0.4); z-index: 0;"></div>
+              <div class="card-body d-flex flex-column justify-content-between p-4 p-md-5 position-relative z-1 h-100">
                 <div>
-                  <h5 class="card-title mb-0 fw-bold fs-6">Koyoharu Gotouge</h5>
-                  <small class="text-secondary">Autora del manga</small>
+                  <span class="badge text-bg-danger mb-2">2020 · PELÍCULA</span>
+                  <h3 class="display-6 fw-bold mb-3">MUGEN TRAIN</h3>
+                  <p class="text-light opacity-75 small mb-4">Una misión a bordo de un tren donde decenas de pasajeros han desaparecido.</p>
                 </div>
-                <span class="badge text-bg-danger">Avatar de cocodrilo</span>
+                <div>
+                  <button class="btn btn-outline-light btn-sm rounded-0 text-uppercase fw-bold px-4 py-2" data-film="mugen">Ver información ↗</button>
+                </div>
               </div>
             </div>
           </div>
-
+          <!-- Película 2 -->
           <div class="col-12 col-lg-6">
-            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Autora</p>
-            <h2 class="display-4 fw-normal mb-4">KOYOHARU<br><span class="text-danger">GOTOUGE</span></h2>
-            
-            <p class="lead text-secondary mb-3 fs-6">
-              La creadora detrás de Kimetsu no Yaiba.
-            </p>
-            <p class="text-light opacity-75 mb-4 small">
-              Gotouge mantiene su identidad en privado y siempre usa un avatar de un cocodrilo con gafas. Destaca mucho por cómo combina momentos graciosos con peleas serias y momentos bastante tristes.
-            </p>
-
-            <div class="row g-3 pt-3 border-top border-secondary mb-4">
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">2013</h4>
-                  <p class="small text-secondary mb-0">Publica su primer one-shot, <i>Kagarigari</i>.</p>
+            <div class="card bg-dark text-light border-secondary rounded-0 h-100 position-relative overflow-hidden shadow" style="min-height: 380px;">
+              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://a.storyblok.com/f/178900/1774x2507/a43e0fc3c5/demon-slayer-kimetsu-no-yaiba-infinity-castle-doma-vs-shinobu-english-visual.jpeg/m/filters:quality(95)format(webp)') center/cover no-repeat; filter: brightness(0.4); z-index: 0;"></div>
+              <div class="card-body d-flex flex-column justify-content-between p-4 p-md-5 position-relative z-1 h-100">
+                <div>
+                  <span class="badge text-bg-danger mb-2">2025— · TRILOGÍA</span>
+                  <h3 class="display-6 fw-bold mb-3">INFINITY CASTLE</h3>
+                  <p class="text-light opacity-75 small mb-4">La batalla final comienza en una fortaleza que desafía toda lógica.</p>
                 </div>
-              </div>
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">2016</h4>
-                  <p class="small text-secondary mb-0">Empieza a publicar <i>Kimetsu no Yaiba</i>.</p>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">2020</h4>
-                  <p class="small text-secondary mb-0">Termina el manga con 205 capítulos.</p>
+                <div>
+                  <button class="btn btn-outline-light btn-sm rounded-0 text-uppercase fw-bold px-4 py-2" data-film="infinity">Ver información ↗</button>
                 </div>
               </div>
             </div>
@@ -426,160 +376,130 @@
       </div>
     </section>
 
-    <section id="quienes-somos" class="py-5 bg-black text-light">
+    <!-- CREADORA -->
+    <section id="creadora" class="py-5 bg-black text-light border-bottom border-secondary">
       <div class="container py-4">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-6 text-center">
-            <div class="card bg-dark border-secondary p-4 shadow-lg d-inline-block w-100" style="max-width: 480px;">
-              <div class="simbolo-nosotros py-4 d-grid place-items-center">
-                <img src="https://colombia.generation.org/wp-content/uploads/2021/09/Generation_Colombia_logo_NEW-BLUE.svg" 
-                     alt="Logo Generation" 
-                     class="img-fluid mx-auto" 
-                     style="max-height: 180px; object-fit: contain;">
-              </div>
+            <div class="card bg-dark border-secondary p-3 shadow-lg d-inline-block rounded-0">
+              <img src="https://sta.articulo14.es/main-files/uploads/2026/02/Koyoharu-Gotouge-362x204.jpeg" alt="Koyoharu Gotouge" class="img-fluid rounded-0" style="max-height: 280px;">
+              <div class="card-body text-start mt-2"><h5 class="fw-bold mb-0">Koyoharu Gotouge</h5><small class="text-secondary">Cocodrilo con gafas</small></div>
             </div>
           </div>
-
           <div class="col-12 col-lg-6">
-            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Sobre el blog</p>
-            <h2 class="display-4 fw-normal mb-4">QUIÉNES<br><span class="text-danger">SOMOS</span></h2>
-            
-            <p class="lead text-secondary mb-3 fs-6">
-              Un proyecto de fans para armar una buena guía sobre la serie.
-            </p>
-            <p class="text-light opacity-75 mb-4 small">
-              Hicimos este blog para organizar la información de Demon Slayer: repasar personajes, arcos, datos curiosos y mantener al día las novedades del anime y manga de forma clara.
-            </p>
-
-            <div class="row g-3 pt-3 border-top border-secondary mb-4">
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">01</h4>
-                  <h5 class="text-light fs-6 mb-1">Información</h5>
-                  <p class="small text-secondary mb-0">Datos claros sobre la serie.</p>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">02</h4>
-                  <h5 class="text-light fs-6 mb-1">Comunidad</h5>
-                  <p class="small text-secondary mb-0">Un espacio para compartir.</p>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="border-top border-danger pt-2">
-                  <h4 class="text-danger fw-bold fs-5 mb-1">03</h4>
-                  <h5 class="text-light fs-6 mb-1">Detalles</h5>
-                  <p class="small text-secondary mb-0">Curiosidades del manga y anime.</p>
-                </div>
-              </div>
+            <h2 class="display-4 fw-normal mb-4">KOYOHARU <span class="text-danger">GOTOUGE</span></h2>
+            <p class="text-secondary small mb-4">La mente detrás de una de las historias más influyentes del manga contemporáneo, reconocida por preservar su privacidad mediante un cocodrilo con gafas.</p>
+            <div class="row g-3 border-top border-secondary pt-3">
+              <div class="col-4"><h5 class="text-danger fw-bold">2013</h5><small class="text-secondary">Kagarigari</small></div>
+              <div class="col-4"><h5 class="text-danger fw-bold">2016</h5><small class="text-secondary">Kimetsu no Yaiba</small></div>
+              <div class="col-4"><h5 class="text-danger fw-bold">2020</h5><small class="text-secondary">Conclusión</small></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-<section id="contacto" class="py-5 bg-dark text-light">
-  <div class="container py-4">
-    <div class="row align-items-start g-5">
-      
-      <!-- Columna Izquierda: Introducción y Nota informativa -->
-      <div class="col-12 col-lg-6">
-        <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Escríbenos</p>
-        <h2 class="display-4 fw-normal mb-4">CONTACTO</h2>
-        
-        <p class="lead text-secondary mb-4 fs-6">
-          ¿Tienes alguna duda, teoría o sugerencia para el blog? Envíanos un mensaje.
-        </p>
-
-        <div class="card bg-black border-secondary p-4 mb-4">
-          <div class="d-flex align-items-start gap-3">
-            <span class="fs-3 text-danger" aria-hidden="true">✉</span>
-            <div>
-              <h5 class="fw-bold fs-6 mb-1 text-light">Mensajes</h5>
-              <p class="small text-secondary mb-0">Puedes usar el formulario para comentarnos lo que quieras.</p>
+    <!-- QUIÉNES SOMOS -->
+    <section id="quienes-somos" class="py-5 bg-dark text-light border-bottom border-secondary">
+      <div class="container py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-6 text-center">
+            <div class="card bg-black border-secondary p-4 shadow-lg rounded-0">
+              <img src="https://colombia.generation.org/wp-content/uploads/2021/09/Generation_Colombia_logo_NEW-BLUE.svg" alt="Generation" class="img-fluid mx-auto" style="max-height: 120px;">
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h2 class="display-4 fw-normal mb-4">QUIÉNES <span class="text-danger">SOMOS</span></h2>
+            <p class="text-secondary small mb-4">Un rincón creado por fans para celebrar las historias que nos inspiran. Demon Slayer Blog reúne información, teorías y análisis con respeto absoluto hacia la obra.</p>
+            <div class="row g-3 border-top border-secondary pt-3">
+              <div class="col-4"><h5 class="text-danger fw-bold">01</h5><small class="text-secondary">Pasión</small></div>
+              <div class="col-4"><h5 class="text-danger fw-bold">02</h5><small class="text-secondary">Comunidad</small></div>
+              <div class="col-4"><h5 class="text-danger fw-bold">03</h5><small class="text-secondary">Curiosidad</small></div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Columna Derecha: Formulario de Contacto en modo oscuro -->
-      <div class="col-12 col-lg-6">
-        <form id="formulario-contacto" class="card bg-black border-secondary p-4 p-md-5 shadow-lg rounded-0">
-          
-          <!-- Campo 1: Nombre -->
-          <div class="form-field mb-3">
-            <label for="contacto-nombre" class="form-label text-light fw-bold small">Nombre</label>
-            <input id="contacto-nombre" name="nombre" type="text" class="form-control bg-dark text-light border-secondary rounded-0 p-3" placeholder="Tu nombre" required minlength="2">
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-5 bg-black text-light">
+      <div class="container py-4">
+        <div class="row align-items-start g-5">
+          <div class="col-12 col-lg-6">
+            <p class="subtitulo text-danger fw-bold text-uppercase mb-2 fs-6">Envía una señal al cuartel</p>
+            <h2 class="display-4 fw-normal mb-4">HABLEMOS<br><span class="text-danger">DEMON SLAYER</span></h2>
+            <p class="lead text-secondary mb-4 fs-6">¿Tienes una teoría, una sugerencia o una idea para el archivo? Nos encantará conocerla.</p>
+            <div class="card bg-dark border-secondary p-4 mb-4 rounded-0">
+              <div class="d-flex align-items-start gap-3">
+                <span class="fs-3 text-danger" aria-hidden="true">✉</span>
+                <div>
+                  <h5 class="fw-bold fs-6 mb-1 text-light">Un mensaje para el equipo</h5>
+                  <p class="small text-secondary mb-0">Usa el formulario para compartir tus comentarios o proponer nuevos temas.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Campo 2: Correo electrónico -->
-          <div class="form-field mb-3">
-            <label for="contacto-correo" class="form-label text-light fw-bold small">Correo electrónico</label>
-            <input id="contacto-correo" name="correo" type="email" class="form-control bg-dark text-light border-secondary rounded-0 p-3" placeholder="name@example.com" required>
-            <div class="form-text text-secondary small mt-1">Nunca compartiremos tu correo con nadie más.</div>
+          <div class="col-12 col-lg-6">
+            <form id="formulario-contacto" class="card bg-dark border-secondary p-4 p-md-5 shadow-lg rounded-0">
+              
+
+              <div class="form-field mb-3">
+                <label for="contacto-nombre" class="form-label text-light fw-bold small">Nombre</label>
+                <input id="contacto-nombre" name="nombre" type="text" class="form-control bg-black text-light border-secondary rounded-0 p-3" placeholder="Tu nombre" required minlength="2">
+              </div>
+
+              <div class="form-field mb-3">
+                <label for="contacto-correo" class="form-label text-light fw-bold small">Correo electrónico</label>
+                <input id="contacto-correo" name="correo" type="email" class="form-control bg-black text-light border-secondary rounded-0 p-3" placeholder="name@example.com" required>
+                <div class="form-text text-secondary small mt-1">Nunca compartiremos tu correo con nadie más.</div>
+              </div>
+
+              <div class="form-field mb-3">
+                <label for="contacto-asunto" class="form-label text-light fw-bold small">Asunto</label>
+                <select id="contacto-asunto" name="asunto" class="form-control bg-black text-light border-secondary rounded-0 p-3" required>
+                  <option value="" disabled selected>Selecciona una opción...</option>
+                  <option value="1">Sugerencia para el blog</option>
+                  <option value="2">Pregunta sobre la serie</option>
+                  <option value="3">Colaboración</option>
+                  <option value="4">Otro</option>
+                </select>
+              </div>
+
+              <div class="form-field mb-4">
+                <label for="contacto-mensaje" class="form-label text-light fw-bold small">Mensaje</label>
+                <textarea id="contacto-mensaje" name="mensaje" rows="4" class="form-control bg-black text-light border-secondary rounded-0 p-3" placeholder="Escribe tu mensaje..." required minlength="10"></textarea>
+                <div class="form-text text-secondary small mt-1">Asegúrate de incluir los detalles relevantes.</div>
+              </div>
+
+              <button class="btn btn-danger btn-lg rounded-0 fw-bold text-uppercase w-100 py-3" type="submit">Enviar mensaje <span class="ms-2">↗</span></button>
+              <p id="retroalimentacion-formulario" class="retroalimentacion-formulario mt-3 mb-0 small text-center" role="status" aria-live="polite"></p>
+            </form>
           </div>
-
-          <!-- Campo 3: Asunto / Select -->
-          <div class="form-field mb-3">
-            <label for="contacto-asunto" class="form-label text-light fw-bold small">Asunto</label>
-            <select id="contacto-asunto" name="asunto" class="form-select bg-dark text-light border-secondary rounded-0 p-3" required>
-              <option value="" disabled selected>Selecciona una opción...</option>
-              <option value="1">Sugerencia para el blog</option>
-              <option value="2">Pregunta sobre la serie</option>
-              <option value="3">Colaboración</option>
-              <option value="4">Otro</option>
-            </select>
-          </div>
-
-          <!-- Campo 4: Mensaje / Textarea -->
-          <div class="form-field mb-4">
-            <label for="contacto-mensaje" class="form-label text-light fw-bold small">Mensaje</label>
-            <textarea id="contacto-mensaje" name="mensaje" rows="4" class="form-control bg-dark text-light border-secondary rounded-0 p-3" placeholder="Escribe tu mensaje..." required minlength="10"></textarea>
-            <div class="form-text text-secondary small mt-1">Asegúrate de incluir los detalles relevantes.</div>
-          </div>
-
-          <!-- Botón de envío -->
-          <button type="submit" class="btn btn-danger btn-lg rounded-0 fw-bold text-uppercase w-100 py-3">
-            Enviar mensaje <span class="ms-2">↗</span>
-          </button>
-
-          <p id="retroalimentacion-formulario" class="retroalimentacion-formulario mt-3 mb-0 small text-center" role="status" aria-live="polite"></p>
-        </form>
+        </div>
       </div>
-
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="bg-black text-light border-top border-secondary py-5">
     <div class="container py-4">
       <div class="row g-4 align-items-center justify-content-between">
         <div class="col-12 col-md-6 text-center text-md-start">
           <h3 class="h5 fw-bold text-uppercase mb-2 text-danger">Demon Slayer Blog</h3>
-          <p class="text-secondary small mb-0">Blog fan de Kimetsu no Yaiba.</p>
+          <p class="text-secondary small mb-0">Un espacio independiente dedicado al análisis, la historia y la comunidad de Kimetsu no Yaiba.</p>
         </div>
-
         <div class="col-12 col-md-6 text-center text-md-end">
-          <ul class="list-inline mb-3">
-            <li class="list-inline-item"><a href="#manga" class="text-secondary text-decoration-none small">Manga</a></li>
-            <li class="list-inline-item ms-3"><a href="#peliculas" class="text-secondary text-decoration-none small">Películas</a></li>
-            <li class="list-inline-item ms-3"><a href="#creadora" class="text-secondary text-decoration-none small">Creadora</a></li>
-            <li class="list-inline-item ms-3"><a href="#quienes-somos" class="text-secondary text-decoration-none small">Quiénes somos</a></li>
-            <li class="list-inline-item ms-3"><a href="#contacto" class="text-secondary text-decoration-none small">Contacto</a></li>
-          </ul>
-          <p class="text-secondary small mb-0">&copy; 2026 Demon Slayer Blog.</p>
+          <p class="text-secondary small mb-0">&copy; 2026 Demon Slayer Blog. Creado de fan a fan.</p>
         </div>
       </div>
     </div>
   </footer>
 
-  
   <div id="modal-personaje" class="fondo-modal" hidden>
     <div class="ventana-modal" role="dialog" aria-modal="true" aria-labelledby="nombre-modal">
       <button class="cerrar-modal" aria-label="Cerrar ventana">×</button>
-      <img id="imagen-modal" src="" alt="Imagen de personaje" class="imagen-personaje-modal">
+      <img id="imagen-modal" src="" alt="Imagen" class="imagen-personaje-modal">
       <div id="marca-modal" class="marca-modal"></div>
       <p id="rol-modal" class="subtitulo"></p>
       <h2 id="nombre-modal"></h2>
@@ -591,9 +511,13 @@
   <div id="modal-informacion" class="fondo-modal" hidden>
     <div class="ventana-modal modal-info" role="dialog" aria-modal="true" aria-labelledby="titulo-info-modal">
       <button class="cerrar-modal" aria-label="Cerrar ventana">×</button>
+      <p class="subtitulo">Archivo cinematográfico</p>
       <h2 id="titulo-info-modal"></h2>
       <p id="texto-info-modal"></p>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
